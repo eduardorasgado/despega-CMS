@@ -15,5 +15,12 @@ class ingresoAdminControllers
 		];
 
 		$response = IngresoAdminModels::ingresoAdminModel($datosController);
+		
+		$user = $response["usuario"];
+		$pass = $response["password"];
+
+		if ($user == $datosController["usuario"] && $pass == $datosController["password"]) {
+			# code...
+		}
 	}
 }
