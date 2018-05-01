@@ -34,9 +34,6 @@ class ingresoAdminControllers
 				$maximoIntentos = 4;
 
 
-
-
-
 				if ($intentos < $maximoIntentos)
 				{
 
@@ -64,38 +61,40 @@ class ingresoAdminControllers
 						}
 						else
 						{
-							echo "Error al ingresar";
+							#incremento a numero de intentos
+							++$intentos;
+
+							#Datos para actualizar intentos en la tabla y usuario
+							$datosController3 = [
+								"usuario" => $user,
+								"intentos" => $intentos
+							];
+
+							#llamado a modelo para actualizar intentos
+							$responseActualizarIntentos = IngresoAdminModels::intentosAdminModel($datosController3, "usuarios");
+
+							#SE PROCEDE A MANDAR EL FALLO A VIEWS
+							//header("location:index.php?action=index");
+
+							echo "<div class='alert alert-danger'>Porfavor ingresa datos válidos y completos</div>";
 						}
 					}
-					else
-					{
-						echo "<div class='alert alert-danger'>Porfavor ingresa datos válidos y completos</div>";
-					}
-
 
 				}
-
-				#SI NO HAY COINCIDENCIA DE DATOS
 				else
 				{
-					#incremento a numero de intentos
-					++$intentos;
-
+					$intentos = 0;
 					#Datos para actualizar intentos en la tabla y usuario
-					$datosController3 = [
-						"usuario" => $user,
+					$datosController1 = [
+						"usuario" => $usuario,
 						"intentos" => $intentos
 					];
 
 					#llamado a modelo para actualizar intentos
-					$responseActualizarIntentos = IngresoAdminModels::intentosAdminModel($datosController3, "usuarios");
+					$responseActualizarIntentos = IngresoAdminModels::intentosAdminModel($datosController1, "usuarios");
 
-					#SE PROCEDE A MANDAR EL FALLO A VIEWS
-					//header("location:index.php?action=index");
-					echo "Fallaste varias veces porque no tratas mas tarde";
+					header("location:index.php?action=captcha");
 				}
-
-
 
 			}
 			else

@@ -26,6 +26,10 @@ class EnlacesModels
 		{
 			$module = "views/modules/ingreso.php";
 		}
+		else if($enlace == "captcha")
+		{
+			$module = "views/modules/ingreso.php";
+		}
 		else
 		{
 			$module = "views/modules/ingreso.php";

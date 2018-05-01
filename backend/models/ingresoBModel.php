@@ -10,12 +10,11 @@ class IngresoAdminModels
 	public function ingresoAdminModel($datos, $tabla)
 	{
 		
-		$query = "SELECT usuario, password, intentos FROM $tabla WHERE usuario = :usuario AND password = :password";
+		$query = "SELECT usuario, password, intentos FROM $tabla WHERE usuario = :usuario";
 
 		$stmt = ConexionModels::conexionModel()->prepare($query);
 
 		$stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
-		$stmt->bindParam(":password", $datos["password"], PDO::PARAM_STR);
 
 		$stmt->execute();
 

@@ -14,6 +14,12 @@ FORMULARIO DE INGRESO
 		$ingresoUser = new ingresoAdminControllers();
 		$ingresoUser->ingresarController();	
 
+		if (isset($_GET["action"])) {
+			if ($_GET["action"] == "captcha") {
+				echo "<div class='alert alert-danger'>Oops Necesitamos que demuestres que no eres un robot</div>";
+			}
+		}
+
 		 ?>
 		<input class="form-control formIngreso btn btn-primary" type="submit" value="Enviar">
 
