@@ -14,6 +14,8 @@ require_once("controllers/templateBController.php");
 require_once("controllers/enlacesBController.php");
 require_once("controllers/ingresoBController.php");
 
+session_start();
+
 $templateController = new TemplateController();
 $templateController->template();
 

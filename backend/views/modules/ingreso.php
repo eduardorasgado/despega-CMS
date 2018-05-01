@@ -15,5 +15,11 @@ FORMULARIO DE INGRESO
 	</form>
 </div>
 
+<?php 
+
+$ingresoUser = new ingresoAdminControllers();
+$ingresoUser->ingresarController();	
+
+ ?>
 
 <!--==== end onf FORMULARIO INGRESO   =======-->

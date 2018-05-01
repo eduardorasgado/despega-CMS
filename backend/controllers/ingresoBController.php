@@ -7,7 +7,7 @@ CONTROLADOR QUE PERMITE INGRESO DE USUARIO EN BACKEND
 
 class ingresoAdminControllers
 {
-	public function ingresoAdminController()
+	public function ingresarController()
 	{
 		$datosController = [
 			"usuario" => $_POST["usuarioIngreso"],
@@ -19,8 +19,18 @@ class ingresoAdminControllers
 		$user = $response["usuario"];
 		$pass = $response["password"];
 
-		if ($user == $datosController["usuario"] && $pass == $datosController["password"]) {
-			# code...
+		if (!empty($response)) {
+			if ($user == $datosController["usuario"] && $pass == $datosController["password"]) {
+				header("location:index.php?action=inicio");
+			}
+			else
+			{
+				echo "Error al ingresar";
+			}
+		}
+		else
+		{
+			echo "Porfavor ingresa datos válidos";
 		}
 	}
 }
