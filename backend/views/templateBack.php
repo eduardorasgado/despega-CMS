@@ -65,10 +65,6 @@
 			SUSCRIPTORES         
 			======================================-->
 			
-			<?php 
-			include("modules/suscriptores.php");
-			 ?>
-		
 			<!--====  Fin de SUSCRIPTORES  ====-->
 
 		<!--====  Fin de COLUMNA CONTENIDO  ====-->
