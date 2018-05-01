@@ -33,7 +33,7 @@ class ingresoAdminControllers
 			}
 			else
 			{
-				echo "<h5 style='color: red'>Porfavor ingresa datos válidos y completos</h5>";
+				echo "<div class='alert alert-danger'>Porfavor ingresa datos válidos y completos</div>";
 			}
 		}
 		

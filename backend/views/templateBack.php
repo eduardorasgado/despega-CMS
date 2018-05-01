@@ -58,6 +58,7 @@
 	</div>
 
 	<script src="views/js/script.js"></script>
+	<script type="text/javascript" src="views/js/validarIngreso.js"></script>
 	
 </body>
 
