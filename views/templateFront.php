@@ -28,11 +28,13 @@
 	<div class="container-fluid">
 
 		<!--=====================================
-		CABEZOTE
+		HEADER
 		======================================-->
 		<?php  
 		include("modules/header.php");
 		?>
+
+		<!--====  Fin de HEADER  ====-->
 
 		<!--=====================================
 		SLIDE
