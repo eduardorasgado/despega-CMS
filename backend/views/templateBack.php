@@ -36,14 +36,7 @@
 	<div class="container-fluid">
 
 		<section class="row">
-
-		<!--=====================================
-		COLUMNA BOTONERA           
-		======================================-->
-
-		<?php 
-		include("views/modules/botonera.php");
-		 ?>
+	
 
 		<!--====  FIn de COLUMNA BOTONERA  ====-->
 
@@ -51,21 +44,12 @@
 		COLUMNA CONTENIDO        
 		======================================-->
 		
-			<!--=====================================
-			 CABEZOTE             
-			======================================-->
-
 			<?php 
-			include("modules/header.php");
+
+			$content = new EnlacesControllers();
+			$content->enlacesController();
+
 			 ?>
-
-			<!--====  Fin de CABEZOTE  ====-->
-
-			<!--=====================================
-			SUSCRIPTORES         
-			======================================-->
-			
-			<!--====  Fin de SUSCRIPTORES  ====-->
 
 		<!--====  Fin de COLUMNA CONTENIDO  ====-->
 
