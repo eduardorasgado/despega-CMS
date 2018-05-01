@@ -3,7 +3,6 @@ FORMULARIO DE INGRESO
 ======================================-->
 
 <div id="backIngreso">
-
 	<form method="post" id="formIngreso" onsubmit="return validarIngreso()">
 
 		<h1 id="tituloFormIngreso">INGRESO AL PANEL DE CONTROL</h1>
