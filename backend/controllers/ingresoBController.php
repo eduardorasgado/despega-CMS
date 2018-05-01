@@ -9,28 +9,33 @@ class ingresoAdminControllers
 {
 	public function ingresarController()
 	{
-		$datosController = [
-			"usuario" => $_POST["usuarioIngreso"],
-			"password" => $_POST["passwordIngreso"]
-		];
+		if (isset($_POST["passwordIngreso"]) && isset($_POST["usuarioIngreso"]))
+		{
+			$datosController = [
+				"usuario" => $_POST["usuarioIngreso"],
+				"password" => $_POST["passwordIngreso"]
+			];
 
-		$response = IngresoAdminModels::ingresoAdminModel($datosController);
-		
-		$user = $response["usuario"];
-		$pass = $response["password"];
+			$response = IngresoAdminModels::ingresoAdminModel($datosController);
+			
+			$user = $response["usuario"];
+			$pass = $response["password"];
 
-		if (!empty($response)) {
-			if ($user == $datosController["usuario"] && $pass == $datosController["password"]) {
-				header("location:index.php?action=inicio");
+			if (!empty($response))
+			{
+				if ($user == $datosController["usuario"] && $pass == $datosController["password"]) {
+					header("location:index.php?action=inicio");
+				}
+				else
+				{
+					echo "Error al ingresar";
+				}
 			}
 			else
 			{
-				echo "Error al ingresar";
+				echo "<h5 style='color: red'>Porfavor ingresa datos válidos y completos</h5>";
 			}
 		}
-		else
-		{
-			echo "Porfavor ingresa datos válidos";
-		}
+		
 	}
 }

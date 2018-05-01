@@ -10,16 +10,15 @@ FORMULARIO DE INGRESO
 		
 		<input class="form-control formIngreso" type="text" placeholder="Ingrese su Usuario" name="usuarioIngreso">
 		<input class="form-control formIngreso" type="password" placeholder="Ingrese su Contraseña" name="passwordIngreso">
+		<?php 
+
+		$ingresoUser = new ingresoAdminControllers();
+		$ingresoUser->ingresarController();	
+
+		 ?>
 		<input class="form-control formIngreso btn btn-primary" type="submit" value="Enviar">
 
 	</form>
 </div>
-
-<?php 
-
-$ingresoUser = new ingresoAdminControllers();
-$ingresoUser->ingresarController();	
-
- ?>
 
 <!--==== end onf FORMULARIO INGRESO   =======-->
