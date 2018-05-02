@@ -45,7 +45,7 @@ class ingresoAdminControllers
 							//$_SESSION["validar"] = true;
 							//$_SESSION["user"] = $datosController["usuario"];
 
-							$intentos = 0;
+							$intentos = 0; 
 
 							$datosController2 = [
 								"usuario" => $user,
@@ -83,15 +83,16 @@ class ingresoAdminControllers
 				}
 				else
 				{
-					$intentos = 0;
-					#Datos para actualizar intentos en la tabla y usuario
-					$datosController1 = [
-						"usuario" => $usuario,
-						"intentos" => $intentos
-					];
 
-					#llamado a modelo para actualizar intentos
-					$responseActualizarIntentos = IngresoAdminModels::intentosAdminModel($datosController1, "usuarios");
+					$intentos = 0; 
+
+							$datosController2 = [
+								"usuario" => $user,
+								"password" => $pass,
+								"intentos" => $intentos
+							];
+
+					$repose = IngresoAdminModels::intentosAdminModel($datosController2, $tabla);
 
 					header("location:index.php?action=captcha");
 				}
