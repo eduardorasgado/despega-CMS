@@ -22,32 +22,32 @@ include "views/modules/header.php";
 	<ul id="columnasSlide">
 		<li class="bloqueSlide">
 			<span class="fa fa-times"></span>
-			<img src="images/slide/slide01.jpg" class="handleImg">
+			<img src="views/images/slide/slide01.jpg" class="handleImg">
 		</li>
 			
 		<li class="bloqueSlide">
 			<span class="fa fa-times"></span>
-			<img src="images/slide/slide02.jpg" class="handleImg">			
+			<img src="views/images/slide/slide02.jpg" class="handleImg">			
 		</li>
 
 		<li class="bloqueSlide">
 			<span class="fa fa-times"></span>
-			<img src="images/slide/slide03.jpg" class="handleImg">			
+			<img src="views/images/slide/slide03.jpg" class="handleImg">			
 		</li>
 
 		<li class="bloqueSlide">
 			<span class="fa fa-times"></span>
-			<img src="images/slide/slide04.jpg" class="handleImg">
+			<img src="views/images/slide/slide04.jpg" class="handleImg">
 		</li>
 			
 		<li class="bloqueSlide">
 			<span class="fa fa-times"></span>
-			<img src="images/slide/slide01.jpg" class="handleImg">			
+			<img src="views/images/slide/slide01.jpg" class="handleImg">			
 		</li>
 
 		<li class="bloqueSlide">
 			<span class="fa fa-times"></span>
-			<img src="images/slide/slide02.jpg" class="handleImg">			
+			<img src="views/images/slide/slide02.jpg" class="handleImg">			
 		</li>
 	</ul>
 
@@ -66,20 +66,20 @@ include "views/modules/header.php";
 	<ul id="ordenarTextSlide">
 		<li>
 			<span class="fa fa-pencil" style="background:blue"></span>
-			<img src="images/slide/slide01.jpg" style="float:left; margin-bottom:10px" width="80%">
+			<img src="views/images/slide/slide01.jpg" style="float:left; margin-bottom:10px" width="80%">
 			<h1>Lorem Ipsum</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 		</li>
 
 		<li>
-			<img src="images/slide/slide02.jpg" class="img-thumbnail">
+			<img src="views/images/slide/slide02.jpg" class="img-thumbnail">
 			<input type="text" class="form-control" placeholder="Título">
 			<textarea row="5" class="form-control" placeholder="Descripción"></textarea>
 			<button class="btn btn-info pull-right" style="margin:10px">Guardar</button>
 		</li>
 
 		<li>
-			<img src="images/slide/slide03.jpg" class="img-thumbnail">
+			<img src="views/images/slide/slide03.jpg" class="img-thumbnail">
 			<input type="text" class="form-control" placeholder="Título">
 			<textarea row="5" class="form-control" placeholder="Descripción"></textarea>
 			<button class="btn btn-info pull-right" style="margin:10px">Guardar</button>
@@ -87,20 +87,20 @@ include "views/modules/header.php";
 
 		<li>
 			<span class="fa fa-pencil" style="background:blue"></span>
-			<img src="images/slide/slide04.jpg" style="float:left; margin-bottom:10px" width="80%">
+			<img src="views/images/slide/slide04.jpg" style="float:left; margin-bottom:10px" width="80%">
 			<h1>Lorem Ipsum</h1>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 		</li>
 
 		<li>
-			<img src="images/slide/slide01.jpg" class="img-thumbnail">
+			<img src="views/images/slide/slide01.jpg" class="img-thumbnail">
 			<input type="text" class="form-control" placeholder="Título">
 			<textarea row="5" class="form-control" placeholder="Descripción"></textarea>
 			<button class="btn btn-info pull-right" style="margin:10px">Guardar</button>
 		</li>
 
 		<li>
-			<img src="images/slide/slide02.jpg" class="img-thumbnail">
+			<img src="views/images/slide/slide02.jpg" class="img-thumbnail">
 			<input type="text" class="form-control" placeholder="Título">
 			<textarea row="5" class="form-control" placeholder="Descripción"></textarea>
 			<button class="btn btn-info pull-right" style="margin:10px">Guardar</button>
@@ -119,7 +119,7 @@ include "views/modules/header.php";
 	
 	<ul>
        <li>
-       	<img src="images/slide/slide01.jpg">
+       	<img src="views/images/slide/slide01.jpg">
        	<div class="slideCaption">
        		<h3>Lorem Ipsum</h3>
 	   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -127,7 +127,7 @@ include "views/modules/header.php";
        </li>
        
        <li>
-       	<img src="images/slide/slide02.jpg"> 	
+       	<img src="views/images/slide/slide02.jpg"> 	
        	<div class="slideCaption">
        		<h3>Lorem Ipsum</h3>
 	   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -135,7 +135,7 @@ include "views/modules/header.php";
        </li>
        
        <li>
-       	<img src="images/slide/slide03.jpg">
+       	<img src="views/images/slide/slide03.jpg">
        	<div class="slideCaption">
        		<h3>Lorem Ipsum</h3>
 	   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -143,7 +143,7 @@ include "views/modules/header.php";
        </li>
        
        <li>
-       	<img src="images/slide/slide04.jpg">
+       	<img src="views/images/slide/slide04.jpg">
        	<div class="slideCaption">
        		<h3>Lorem Ipsum</h3>
 	   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
