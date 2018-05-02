@@ -15,45 +15,17 @@ include "views/modules/header.php";
 
 <div id="imgSlide" class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
 			
-<hr>
+	<hr>
 
-<p><span class="fa fa-arrow-down"></span>  Arrastra aquí tu imagen, tamaño recomendado: 1600px * 600px</p>
-	
-	<ul id="columnasSlide">
-		<li class="bloqueSlide">
-			<span class="fa fa-times"></span>
-			<img src="views/images/slide/slide01.jpg" class="handleImg">
-		</li>
+	<p><span class="fa fa-arrow-down"></span>  Arrastra aquí tu imagen, tamaño recomendado: 1600px * 600px</p>
+		
+		<ul id="columnasSlide">
 			
-		<li class="bloqueSlide">
-			<span class="fa fa-times"></span>
-			<img src="views/images/slide/slide02.jpg" class="handleImg">			
-		</li>
+		</ul>
 
-		<li class="bloqueSlide">
-			<span class="fa fa-times"></span>
-			<img src="views/images/slide/slide03.jpg" class="handleImg">			
-		</li>
+		<button id="ordenarSlide" class="btn btn-warning pull-right" style="margin:10px 30px">Ordenar Slides</button>
 
-		<li class="bloqueSlide">
-			<span class="fa fa-times"></span>
-			<img src="views/images/slide/slide04.jpg" class="handleImg">
-		</li>
-			
-		<li class="bloqueSlide">
-			<span class="fa fa-times"></span>
-			<img src="views/images/slide/slide01.jpg" class="handleImg">			
-		</li>
-
-		<li class="bloqueSlide">
-			<span class="fa fa-times"></span>
-			<img src="views/images/slide/slide02.jpg" class="handleImg">			
-		</li>
-	</ul>
-
-	<button id="ordenarSlide" class="btn btn-warning pull-right" style="margin:10px 30px">Ordenar Slides</button>
-
-	<button id="guardarSlide" class="btn btn-primary pull-right" style="display:none; margin:10px 30px">Guardar Orden Slides</button>
+		<button id="guardarSlide" class="btn btn-primary pull-right" style="display:none; margin:10px 30px">Guardar Orden Slides</button>
 
 </div>
 
@@ -64,7 +36,7 @@ include "views/modules/header.php";
 <hr>
 	
 	<ul id="ordenarTextSlide">
-		<li>
+		<!--<li>
 			<span class="fa fa-pencil" style="background:blue"></span>
 			<img src="views/images/slide/slide01.jpg" style="float:left; margin-bottom:10px" width="80%">
 			<h1>Lorem Ipsum</h1>
@@ -104,7 +76,7 @@ include "views/modules/header.php";
 			<input type="text" class="form-control" placeholder="Título">
 			<textarea row="5" class="form-control" placeholder="Descripción"></textarea>
 			<button class="btn btn-info pull-right" style="margin:10px">Guardar</button>
-		</li>
+		</li> -->
 
 	</ul>
 </div>
@@ -113,7 +85,7 @@ include "views/modules/header.php";
 
 <!--===============================================-->
 
-<div id="slide" class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
+<!--<div id="slide" class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
 	
 	<hr>
 	
@@ -162,4 +134,38 @@ include "views/modules/header.php";
 	<div id="slideIzq"><span class="fa fa-chevron-left"></span></div>
 	<div id="slideDer"><span class="fa fa-chevron-right"></span></div>
 
-</div>
+</div>-->
+
+
+
+<!--=================================================================-->
+
+<!--li class="bloqueSlide">
+				<span class="fa fa-times"></span>
+				<img src="views/images/slide/slide01.jpg" class="handleImg">
+			</li>
+				
+			<li class="bloqueSlide">
+				<span class="fa fa-times"></span>
+				<img src="views/images/slide/slide02.jpg" class="handleImg">			
+			</li>
+
+			<li class="bloqueSlide">
+				<span class="fa fa-times"></span>
+				<img src="views/images/slide/slide03.jpg" class="handleImg">			
+			</li>
+
+			<li class="bloqueSlide">
+				<span class="fa fa-times"></span>
+				<img src="views/images/slide/slide04.jpg" class="handleImg">
+			</li>
+				
+			<li class="bloqueSlide">
+				<span class="fa fa-times"></span>
+				<img src="views/images/slide/slide01.jpg" class="handleImg">			
+			</li>
+
+			<li class="bloqueSlide">
+				<span class="fa fa-times"></span>
+				<img src="views/images/slide/slide02.jpg" class="handleImg">			
+			</li-->
