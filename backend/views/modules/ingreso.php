@@ -1,8 +1,24 @@
+<?php 
+/* INICIO DE SESSION VALIDADA*/
+	
+if (isset($_SESSION["validar"]))
+{
+	if ($_SESSION["valida"]) {
+		header("location:index.php?action=inicio");
+		exit();
+	}
+}
+
+ ?>
+
+
+
 <!--=====================================
 FORMULARIO DE INGRESO           
 ======================================-->
 
 <div id="backIngreso">
+
 	<form method="post" id="formIngreso" onsubmit="return validarIngreso()">
 
 		<h1 id="tituloFormIngreso">INGRESO AL PANEL DE CONTROL</h1>

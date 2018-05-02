@@ -1,8 +1,20 @@
+
+<?php 
+/* INICIO DE SESSION VALIDADA*/
+	
+if (!isset($_SESSION["validar"])) {
+	header("location:index.php?action=ingreso");
+	exit();
+}
+
+ ?>
+
+
 <div id="inicio" class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
 			 
 	<div class="jumbotron">
 	    <h1>Bienvenidos</h1>
-	    <p>Bienvenidos al panel de control.</p>
+	    <p>Bienvenidos al panel de control de Despega CMS.</p>
 	</div>
 
 		<hr>

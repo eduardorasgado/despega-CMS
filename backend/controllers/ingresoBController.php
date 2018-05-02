@@ -42,8 +42,8 @@ class ingresoAdminControllers
 						if ($user == $datosController["usuario"] && $pass == $datosController["password"])
 						{
 							//INICIO DE SESSION
-							//$_SESSION["validar"] = true;
-							//$_SESSION["user"] = $datosController["usuario"];
+							$_SESSION["validar"] = true;
+							$_SESSION["user"] = $datosController["usuario"];
 
 							$intentos = 0; 
 
