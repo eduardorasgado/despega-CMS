@@ -18,7 +18,8 @@ class EnlacesModels
 			$enlace == "perfil" ||
 			$enlace == "slide" ||
 			$enlace == "suscriptores" ||
-			$enlace == "videos")
+			$enlace == "videos" ||
+			$enlace == "salir")
 		{
 			$module = "views/modules/".$enlace.".php";
 		}
@@ -28,6 +29,9 @@ class EnlacesModels
 		}
 		else if($enlace == "captcha")
 		{
+			$module = "views/modules/ingreso.php";
+		}
+		else if ($enlace == "out") {
 			$module = "views/modules/ingreso.php";
 		}
 		else

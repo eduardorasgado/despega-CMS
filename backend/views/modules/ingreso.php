@@ -36,6 +36,12 @@ FORMULARIO DE INGRESO
 			}
 		}
 
+		if (isset($_GET["action"])) {
+			if ($_GET["action"] == "out") {
+				echo "<div class='alert alert-success'>Has abandonado el sistema exitosamente.</div>";
+			}
+		}
+
 		 ?>
 		<input class="form-control formIngreso btn btn-primary" type="submit" value="Enviar">
 
