@@ -24,6 +24,7 @@ else
 
 //DESCARGAR A TRAVES DE JQUERY
 
+//AL HACER HOVER CON EL ARCHIVO EN MANO
 $('#columnasSlide').on("dragover", function(e)
 {
 	e.preventDefault();
@@ -33,6 +34,24 @@ $('#columnasSlide').on("dragover", function(e)
 	$('#columnasSlide').css({"background":"gray","opacity":"0.2"})
 
 });
+
+//AL DROPEAR EL ARCHIVO
+$('#columnasSlide').on("drop", function(e)
+{
+	e.preventDefault();
+	e.stopPropagation();
+	//mostrar el patron al momento de llevar una imagen a  arrastrar
+	$('#columnasSlide').css({"background":"white"});
+
+	//almacenando el archivo en una variable
+	var archivo = e.originalEvent.dataTransfer.files;
+	var imagen = archivo[0];
+
+	var imagenSize = imagen.size;
+
+});
+
+//AL NO DROPEAR EL ARCHIVO Y SALIR DEL AREA	
 $('#columnasSlide').on("dragleave", function(e)
 {
 	//mostrar el patron al momento de llevar una imagen a  arrastrar
