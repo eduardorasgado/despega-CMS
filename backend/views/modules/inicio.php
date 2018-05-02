@@ -7,14 +7,17 @@ if (!isset($_SESSION["validar"])) {
 	exit();
 }
 
+include "views/modules/botonera.php";
+include "views/modules/header.php";
+
  ?>
 
 
 <div id="inicio" class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
 			 
 	<div class="jumbotron">
-	    <h1>Bienvenidos</h1>
-	    <p>Bienvenidos al panel de control de Despega CMS.</p>
+	    <h1>Bienvenid@ <?php echo $_SESSION["user"] ?></h1>
+	    <p>Este es tu panel de control en Despega CMS.</p>
 	</div>
 
 		<hr>
