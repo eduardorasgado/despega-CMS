@@ -1,3 +1,18 @@
+
+<?php 
+/* INICIO DE SESSION VALIDADA*/
+	
+if (!isset($_SESSION["validar"])) {
+	header("location:index.php?action=ingreso");
+	exit();
+}
+
+include "views/modules/botonera.php";
+include "views/modules/header.php";
+
+ ?>
+
+
 <div id="bandejaMensajes" class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
 			 
 	 <div >

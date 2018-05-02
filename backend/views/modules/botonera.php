@@ -30,12 +30,12 @@
 				
 		<ul class="nav navbar">
 
-			<li><a href="inicio.html">Inicio <span class="glyphicon glyphicon-new-window"></span></a></li>
-			<li><a href="slide.html">Slide <span class="glyphicon glyphicon-new-window"></span></a></li>
-			<li><a href="articulos.html">Artículos <span class="glyphicon glyphicon-new-window"></span></a></li>
-			<li><a href="galeria.html">Imágenes <span class="glyphicon glyphicon-new-window"></span></a></li>
+			<li><a href="index.php?action=inicio">Inicio <span class="glyphicon glyphicon-new-window"></span></a></li>
+			<li><a href="index.php?action=slide">Slide <span class="glyphicon glyphicon-new-window"></span></a></li>
+			<li><a href="index.php?action=articulos">Artículos <span class="glyphicon glyphicon-new-window"></span></a></li>
+			<li><a href="index.php?action=galeria">Imágenes <span class="glyphicon glyphicon-new-window"></span></a></li>
 			<li><a href="videos.html">Videos <span class="glyphicon glyphicon-new-window"></span></a></li>
-			<li><a href="suscriptores.html">Suscriptores <span class="glyphicon glyphicon-new-window"></span></a></li>
+			<li><a href="index.php?action=suscriptores">Suscriptores <span class="glyphicon glyphicon-new-window"></span></a></li>
 
 		</ul>
 
