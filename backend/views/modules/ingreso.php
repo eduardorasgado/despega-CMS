@@ -3,8 +3,8 @@
 	
 if (isset($_SESSION["validar"]))
 {
-	if ($_SESSION["valida"]) {
-		header("location:index.php?action=inicio");
+	if ($_SESSION["validar"]) {
+		header("location:inicio");
 		exit();
 	}
 }

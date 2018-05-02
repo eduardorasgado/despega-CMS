@@ -57,7 +57,7 @@ class ingresoAdminControllers
 							$repose = IngresoAdminModels::intentosAdminModel($datosController2, $tabla);
 
 							//REDIRIGIR EXITOSAMENTE
-							header("location:index.php?action=inicio");
+							header("location:inicio");
 						}
 						else
 						{
@@ -94,7 +94,7 @@ class ingresoAdminControllers
 
 					$repose = IngresoAdminModels::intentosAdminModel($datosController2, $tabla);
 
-					header("location:index.php?action=captcha");
+					header("location:captcha");
 				}
 
 			}
