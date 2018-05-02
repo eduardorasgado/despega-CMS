@@ -26,7 +26,7 @@ include "views/modules/header.php";
 
 		<li class="botonesInicio">
 		
-			<a href="slide.html">
+			<a href="index.php?action=slide">
 			<div style="background:#4CF53A">
 			<span class="fa fa-toggle-right"></span>
 			<p>Slide</p>
@@ -37,7 +37,7 @@ include "views/modules/header.php";
 
 		<li class="botonesInicio">
 		
-			<a href="articulos.html">
+			<a href="index.php?action=articulos">
 			<div style="background:#F640DA">
 			<span class="fa fa-file-text-o"></span>
 			<p>Artículos</p>
@@ -48,7 +48,7 @@ include "views/modules/header.php";
 
 		<li class="botonesInicio">
 		
-			<a href="galeria.html">
+			<a href="index.php?action=galeria">
 			<div style="background:#04E6DE">
 			<span class="fa fa-image"></span>
 			<p>Imágenes</p>
@@ -59,7 +59,7 @@ include "views/modules/header.php";
 
 		<li class="botonesInicio">
 		
-			<a href="videos.html">
+			<a href="index.php?action=videos">
 			<div style="background:#1434AD"> 
 			<span class="fa fa-film"></span>
 			<p>Videos</p>
@@ -70,7 +70,7 @@ include "views/modules/header.php";
 
 		<li class="botonesInicio">
 		
-			<a href="suscriptores.html">
+			<a href="index.php?action=suscriptores">
 			<div style="background:#ED3E3E">
 			<span class="fa fa-users"></span>
 			<p>Suscriptores</p>
