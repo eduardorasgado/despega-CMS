@@ -83,7 +83,7 @@ $('#columnasSlide').on("drop", function(e)
 			contentType: false,
 			processData: false,
 			beforeSend: function(){
-				$("#columnasSlide").before("<img src='views/image/status.gif id='status'>'");
+				$("#columnasSlide").before("<img src='views/images/status.gif' id='status'>");
 			},
 			success: function(respuesta){
 				//cuando se envia la imagen

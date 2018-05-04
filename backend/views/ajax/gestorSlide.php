@@ -18,9 +18,10 @@ class Ajax
 		$respuesta = slideControllers::mostrarImagenController($datos);
 		//Mostrar imagen que estamos subiendo
 		echo $respuesta;
+	}
 }
 
 $a = new Ajax();
 $a->nombreImagen = $_FILES["imagen"]["name"];
-$a->nombreImagen = $_FILES["imagen"]["tmp_name"];
+$a->imagenTemporal = $_FILES["imagen"]["tmp_name"];
 $a->gestorSlideAjax();
