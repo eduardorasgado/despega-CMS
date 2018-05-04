@@ -101,7 +101,7 @@ $('#columnasSlide').on("drop", function(e)
 				{
 					$(".alerta2").remove();
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Tu imagen se ha subido con exito</div>");		
-
+					$("#columnasSlide").append("<li class='bloqueSlide'><span class='fa fa-times'></span><img src='views/images/slide/slide01.jpg' class='handleImg'></li>");
 				}
 			}
 		});

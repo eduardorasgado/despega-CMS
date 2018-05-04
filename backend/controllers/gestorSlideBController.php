@@ -13,6 +13,7 @@ class slideControllers
 		}
 		else
 		{
+			
 			return true;
 		}
 	}
