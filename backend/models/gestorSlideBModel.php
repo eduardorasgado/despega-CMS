@@ -2,7 +2,7 @@
 
 class slideModels
 {
-	public function gestorSlideModel()
+	public function mostrarImagenModel()
 	{
 
 	}

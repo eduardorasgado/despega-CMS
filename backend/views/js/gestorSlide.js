@@ -48,13 +48,49 @@ $('#columnasSlide').on("drop", function(e)
 	var image = archivo[0];
 
 	var imageSize = image.size;
+	var imagetype = image.type;
 
 	if (Number(imageSize) > 2000000) 
 	{
+		//rechazar si el archivo pesa mas de 2mb
 		$("#columnasSlide").before("<div class='alert alert-warning alerta text-center'> El archivo excede el peso permitido: 2MB.</div>");
 	}
 	else{
 		$(".alerta").remove();
+	}
+	if (imagetype == "image/jpeg" || imagetype == "image/png") 
+	{
+		$(".alerta").remove();		
+	}
+	else
+	{
+		//rechazar si el archivo no es png o jpeg
+		$("#columnasSlide").before("<div class='alert alert-warning alerta text-center'> Por favor sube una imagen con extension válida: PNG o JPG.</div>");		
+	}
+
+	//subir imagen al servidor
+	if (Number(imageSize) < 2000000 && imagetype == "image/jpeg" || imagetype == "image/png")
+	{
+		var datos = new FormData();
+
+		datos.append("imagen", image);
+
+		$.ajax({
+			url: "views/ajax/gestorSlide.php",
+			method: "POST",
+			data: datos,
+			cache: false,
+			contentType: false,
+			processData: false,
+			beforeSend: function(){
+				$("#columnasSlide").before("<img src='views/image/status.gif id='status'>'");
+			},
+			success: function(respuesta){
+				//cuando se envia la imagen
+				$("#status").remove();
+				console.log("respuesta", respuesta);
+			}
+		});
 	}
 
 });
