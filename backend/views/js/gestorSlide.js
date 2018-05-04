@@ -45,9 +45,14 @@ $('#columnasSlide').on("drop", function(e)
 
 	//almacenando el archivo en una variable
 	var archivo = e.originalEvent.dataTransfer.files;
-	var imagen = archivo[0];
+	var image = archivo[0];
 
-	var imagenSize = imagen.size;
+	var imageSize = image.size;
+
+	if (Number(imageSize) > 2000000) 
+	{
+		$("#columnasSlide").before("<div class='alert alert-warning text-center'> El archivo excede el peso permitido: 2MB.</div>");
+	}
 
 });
 
