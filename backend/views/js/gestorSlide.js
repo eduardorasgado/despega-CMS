@@ -51,7 +51,10 @@ $('#columnasSlide').on("drop", function(e)
 
 	if (Number(imageSize) > 2000000) 
 	{
-		$("#columnasSlide").before("<div class='alert alert-warning text-center'> El archivo excede el peso permitido: 2MB.</div>");
+		$("#columnasSlide").before("<div class='alert alert-warning alerta text-center'> El archivo excede el peso permitido: 2MB.</div>");
+	}
+	else{
+		$(".alerta").remove();
 	}
 
 });

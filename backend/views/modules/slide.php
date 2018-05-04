@@ -17,7 +17,7 @@ include "views/modules/header.php";
 			
 	<hr>
 
-	<p><span class="fa fa-arrow-down"></span>  Arrastra aquí tu imagen, tamaño recomendado: 1600px * 600px y 2MB o menos</p>
+	<p><span class="fa fa-arrow-down"></span>  Arrastra aquí tu imagen (tamaño recomendado: 1600px * 600px y 2MB o menos).</p>
 		
 		<ul id="columnasSlide">
 			
