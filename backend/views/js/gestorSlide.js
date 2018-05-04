@@ -69,7 +69,7 @@ $('#columnasSlide').on("drop", function(e)
 	}
 
 	//subir imagen al servidor
-	if (Number(imageSize) < 2000000 && imagetype == "image/jpeg" || imagetype == "image/png")
+	if (Number(imageSize) < 2000000 && (imagetype == "image/jpeg" || imagetype == "image/png"))
 	{
 		var datos = new FormData();
 
@@ -83,12 +83,26 @@ $('#columnasSlide').on("drop", function(e)
 			contentType: false,
 			processData: false,
 			beforeSend: function(){
+				//gif de carga
 				$("#columnasSlide").before("<img src='views/images/status.gif' id='status'>");
 			},
 			success: function(respuesta){
 				//cuando se envia la imagen
+				//se remueve el gif
 				$("#status").remove();
-				console.log("respuesta", respuesta);
+
+				if (respuesta == false)
+				{
+					//Si no cumple con dimensiones adecuadas
+					$("#columnasSlide").before("<div class='alert alert-warning alerta2 text-center'> Tu imagen no tiene las dimensiones adecuadas.</div>");		
+
+				}
+				else
+				{
+					$(".alerta2").remove();
+					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Tu imagen se ha subido con exito</div>");		
+
+				}
 			}
 		});
 	}
