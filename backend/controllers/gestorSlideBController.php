@@ -13,8 +13,26 @@ class slideControllers
 		}
 		else
 		{
+
+			$nameSplitted = explode(".", $datos['nombreImagen']);
+			$extension = end($nameSplitted);
+			$noSpaces = str_replace(" ", "_", $datos['nombreImagen']);
+			//En caso que la imagen sea png
+			if ($extension == "png") {
+				$ruta = "views/images/slide/slide-".$noSpaces;
+				$origen = imagecreatefrompng($datos["imagenTemporal"]);
+				return $ruta;
+			}
+
+			//En caso que la imagen sea jpg
+			else
+			{
+				$ruta = "views/images/slide/slide-".$noSpaces;
 			
-			return true;
+				//variable donde guardaremos la imagen
+				$origen = imagecreatefromjpeg($datos["imagenTemporal"]);
+				return $ruta;
+			}
 		}
 	}
 }
