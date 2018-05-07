@@ -23,7 +23,7 @@ class slideControllers
 
 			//En caso que la imagen sea png
 			if ($extension == "png") {
-				$ruta = "views/images/slide/slide-".$noSpaces;
+				$ruta = "../../views/images/slide/slide-".$noSpaces;
 				$origen = imagecreatefrompng($datos["imagenTemporal"]);
 				imagepng($origen, $ruta);
 				return true;
@@ -32,7 +32,7 @@ class slideControllers
 			//En caso que la imagen sea jpg
 			else if ($extension == "jpeg" || $extension == "jpg" || $extension == "JPG") 
 			{	
-				$ruta = "views/images/slide/slide-".$noSpaces;
+				$ruta = "../../views/images/slide/slide-".$noSpaces;
 			
 				//variable donde guardaremos la imagen
 				$origen = imagecreatefromjpeg($datos["imagenTemporal"]);
