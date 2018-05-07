@@ -54,6 +54,7 @@ $('#columnasSlide').on("drop", function(e)
 	{
 		//rechazar si el archivo pesa mas de 2mb
 		$("#columnasSlide").before("<div class='alert alert-warning alerta text-center'> El archivo excede el peso permitido: 2MB.</div>");
+		return false;
 	}
 	else{
 		$(".alerta").remove();
@@ -65,7 +66,8 @@ $('#columnasSlide').on("drop", function(e)
 	else
 	{
 		//rechazar si el archivo no es png o jpeg
-		$("#columnasSlide").before("<div class='alert alert-warning alerta text-center'> Por favor sube una imagen con extension válida: PNG o JPG.</div>");		
+		$("#columnasSlide").before("<div class='alert alert-warning alerta text-center'> Por favor sube una imagen con extension válida: PNG o JPG.</div>");
+		return false;	
 	}
 
 	//subir imagen al servidor
