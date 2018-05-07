@@ -19,9 +19,14 @@ class slideControllers
 			$extension = end($nameSplitted);
 
 			//los arrays sin el ultimo elemento
+			//array_pop quita el ultimo elemento de un array y lo almacena
+			//en una variable. Sin embargo el array afectado es al mismo al
+			//que se le retira un si mismo el ultimo elemento
 			$noLastElement = array_pop($nameSplitted);
+			//$noLastElement es la variable que porta el elemento desechado
 
 			//unir array en un string
+			//aqui nameSplitted ya no tiene el ultimo elemento
 			$noExtension = implode("-", $nameSplitted);
 			
 			//quitar espacios
@@ -30,15 +35,19 @@ class slideControllers
 			//agarramos un numero random para el nombre
 			$aleatorio = mt_rand(100,999);
 
-			//ruta para guardar con nombre
-			$ruta = "../../views/images/slide/slide-".$noSpaces."_".$aleatorio;
+			//ruta para guardar con nombre unidoa un numero aleatorio
+			//y sin extension
+			$ruta = "../../views/images/slide/slide_".$noSpaces."_".$aleatorio;
 
 
 			//En caso que la imagen sea png
 			if ($extension == "png")
 			{	
+				//agregamos extension debida
 				$ruta = $ruta.".png";		
 				$origen = imagecreatefrompng($datos["imagenTemporal"]);
+
+				//guardamos en fisico
 				imagepng($origen, $ruta);
 				return true;
 			}
