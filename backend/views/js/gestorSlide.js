@@ -201,6 +201,28 @@ $("#columnasSlide").on("click",".eliminarAjaxSlide", function(){
 		if ($('#columnasSlide').html() == 0) {
 			$('#columnasSlide').css({"height":"150px"});
 		}
+
+		//Eliminar item de la base de datos
+		var borrarItem = new FormData();
+
+		borrarItem.append("idSlide", idSlide);
+		//url porque esto se invoca en index.php desde TemplateCOntroller()
+		$.ajax({
+			url: 'views/ajax/gestorSlide.php',
+			method: 'POST',
+			data: borrarItem,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function(respuesta){
+				if (respuesta == false) {
+					$("#columnasSlide").before("<div class='alert alert-warning alerta2 text-center'> Algo salió mal, te sugerimos probar recargar la página.</div>");
+				}
+				else {
+					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> La imagen se ha borrado exitosamente</div>");
+				}
+			}
+		});
 		
 	}
 });
