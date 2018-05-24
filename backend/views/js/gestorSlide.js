@@ -144,7 +144,8 @@ $('#columnasSlide').on("dragleave", function(e)
 ===========================================*/
 
 $(".eliminarSlide").click(function(){
-	window.alert("aah")
+	idSlide = $(this).parent().attr("id");
+	window-alert(idSlide);
 })
 
 /*=====  End of ELIMINAR ITEM SLIDE  ======*/
