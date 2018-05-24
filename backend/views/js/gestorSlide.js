@@ -169,7 +169,12 @@ $(".eliminarSlide").click(function(){
 			contentType: false,
 			processData: false,
 			success: function(respuesta){
-				
+				if (respuesta == false) {
+					$("#columnasSlide").before("<div class='alert alert-warning alerta2 text-center'> Algo salió mal, te sugerimos probar recargar la página.</div>");
+				}
+				else {
+					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> La imagen se ha borrado exitosamente</div>");
+				}
 			}
 		});
 	}

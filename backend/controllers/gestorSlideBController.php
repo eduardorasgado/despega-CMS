@@ -116,7 +116,10 @@ class slideControllers
 	public function deleteSlideController($datos)
 	{
 		$response = slideModels::deleteSlideModel($datos, "slide");
-
+		if ($response) {
+			return true;
+		}
+		return false;
 	}
 
 
