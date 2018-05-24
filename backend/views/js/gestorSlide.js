@@ -153,7 +153,7 @@ $(".eliminarSlide").click(function(){
 
 	//antes de todo, confimacion de seguridad
 	confirmacion = window.confirm("Estas a punto de borrar tu elemento");
-	
+
 	//en caso de aceptacion de eliminado
 	if (confirmacion) {
 		//borrando el item
@@ -163,6 +163,47 @@ $(".eliminarSlide").click(function(){
 		if ($('#columnasSlide').html() == 0) {
 			$('#columnasSlide').css({"height":"150px"});
 		}
+		//Llamada al componente funcion para ejecutar ajax
+		deleteLogic(idSlide, rutaSlide);
+	}
+});
+
+
+
+/*=====  End of ELIMINAR ITEM SLIDE  ======*/
+
+/*========================================================
+=            ON CLICK PARA ELIMINAR ITEM AJAX            =
+========================================================*/
+
+//No se puede hacer .click en un elemento que aun no existe en la pagina
+//como lo es el caso de los elementos ajax, para ello acudimos a esta funcion
+
+$("#columnasSlide").on("click",".eliminarAjaxSlide", function(){
+  	idSlide = $(this).parent().attr("id");
+  	rutaSlide = $(this).attr("ruta");
+	confirmacion = window.confirm("Estas a punto de borrar tu elemento");
+	
+	if (confirmacion) {
+		//borramos el item
+		$(this).parent().remove();
+		//borramos item editor con el id
+		$("#item"+idSlide).remove();
+		if ($('#columnasSlide').html() == 0) {
+			$('#columnasSlide').css({"height":"150px"});
+		}
+		//Llamada al componente funcion para ejecutar ajax
+		deleteLogic(idSlide, rutaSlide);		
+	}
+});
+
+/*=====  End of ON CLICK PARA ELIMINAR ITEM AJAX  ======*/
+
+/*======================================================
+=            DELETE AJAX COMPONENT FUNCTION            =
+======================================================*/
+
+function deleteLogic(idSlide, rutaSlide){
 
 		//Eliminar item de la base de datos
 		var borrarItem = new FormData();
@@ -190,58 +231,6 @@ $(".eliminarSlide").click(function(){
 				}
 			}
 		});
-	}
-})
+}
 
-/*=====  End of ELIMINAR ITEM SLIDE  ======*/
-
-/*========================================================
-=            ON CLICK PARA ELIMINAR ITEM AJAX            =
-========================================================*/
-
-//No se puede hacer .click en un elemento que aun no existe en la pagina
-//como lo es el caso de los elementos ajax, para ello acudimos a esta funcion
-
-$("#columnasSlide").on("click",".eliminarAjaxSlide", function(){
-  	idSlide = $(this).parent().attr("id");
-  	rutaSlide = $(this).attr("ruta");
-	confirmacion = window.confirm("Estas a punto de borrar tu elemento");
-	
-	if (confirmacion) {
-		//borramos el item
-		$(this).parent().remove();
-		//borramos item editor con el id
-		$("#item"+idSlide).remove();
-		if ($('#columnasSlide').html() == 0) {
-			$('#columnasSlide').css({"height":"150px"});
-		}
-
-		//Eliminar item de la base de datos
-		var borrarItem = new FormData();
-
-		borrarItem.append("idSlide", idSlide);
-		//item para ajax con ruta para borrado del archivo del server
-		borrarItem.append("rutaSlide", rutaSlide);
-
-		//url porque esto se invoca en index.php desde TemplateCOntroller()
-		$.ajax({
-			url: 'views/ajax/gestorSlide.php',
-			method: 'POST',
-			data: borrarItem,
-			cache: false,
-			contentType: false,
-			processData: false,
-			success: function(respuesta){
-				if (respuesta == false) {
-					$("#columnasSlide").before("<div class='alert alert-warning alerta2 text-center'> Algo salió mal, te sugerimos probar recargar la página.</div>");
-				}
-				else {
-					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> La imagen se ha borrado exitosamente</div>");
-				}
-			}
-		});
-		
-	}
-});
-
-/*=====  End of ON CLICK PARA ELIMINAR ITEM AJAX  ======*/
+/*=====  End of DELETE AJAX COMPONENT FUNCTION  ======*/
