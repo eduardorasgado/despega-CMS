@@ -114,9 +114,11 @@ class slideControllers
 
 	//eliminar item del slide view
 	public function deleteSlideController($datos)
-	{
+	{	
+		//eliminar ruta de la DB
 		$response = slideModels::deleteSlideModel($datos, "slide");
 		if ($response) {
+			unlink($datos["rutaSlide"]);
 			return true;
 		}
 		return false;

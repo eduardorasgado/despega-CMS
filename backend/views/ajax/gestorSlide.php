@@ -25,11 +25,13 @@ class Ajax
 
 	//Eliminar item slide
 	public $idSlide;
+	public $rutaSlide;
 
 	public function eliminarSlideAjax()
 	{
 		$datos = [
 			"idSlide" => $this->idSlide,
+			"rutaSlide" => $this->rutaSlide,
 		];
 
 		$respuesta = slideControllers::deleteSlideController($datos);
@@ -53,5 +55,6 @@ if (isset($_POST["idSlide"]))
 	#instancia para borrar
 	$delete = new Ajax();
 	$delete->idSlide = $_POST["idSlide"];
+	$delete->rutaSlide = $_POST["rutaSlide"];
 	$delete->eliminarSlideAjax();
 }

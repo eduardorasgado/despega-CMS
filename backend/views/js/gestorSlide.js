@@ -103,6 +103,8 @@ $('#columnasSlide').on("drop", function(e)
 				}
 				else
 				{
+					//ruta completa para poder eliminar con ajax el archivo del server
+					rutaRaw = respuesta["ruta"];
 					//recibir el json, obtener ruta y corta los primeros: ../../
 					ruta = respuesta["ruta"].slice(6);
 					//operadores ternarios, si no estan definidos mandar un espacio solamente
@@ -110,7 +112,7 @@ $('#columnasSlide').on("drop", function(e)
 					descripcion = (typeof(respuesta["descripcion"]) !== 'undefined') ? respuesta["descripcion"] : " ";
 					$(".alerta2").remove();
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Tu imagen se ha subido con exito</div>");		
-					$("#columnasSlide").append("<li id='"+respuesta['id']+"' class='bloqueSlide'><span class='fa fa-times eliminarAjaxSlide'></span><img src='"+ruta+"' class='handleImg'></li>");
+					$("#columnasSlide").append("<li id='"+respuesta['id']+"' class='bloqueSlide'><span class='fa fa-times eliminarAjaxSlide' ruta='"+rutaRaw+"'></span><img src='"+ruta+"' class='handleImg'></li>");
 					$("#ordenarTextSlide").append("<li id='item"+respuesta['id']+"'><span class='fa fa-pencil' style='background:blue'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");					
 					//$("#slideCarousel").append("<li><img src='"+ruta+"'><div class='slideCaption'><h3>"+titulo+"</h3><p>"+descripcion+"</p></div></li>");
 
@@ -144,9 +146,15 @@ $('#columnasSlide').on("dragleave", function(e)
 ===========================================*/
 
 $(".eliminarSlide").click(function(){
+	//id que sustraemos para eliminar la ruta de la db
 	idSlide = $(this).parent().attr("id");
+	//ruta que ssutraemos para eliminar el archivo del server
+	rutaSlide = $(this).attr("ruta");
+
+	//antes de todo, confimacion de seguridad
 	confirmacion = window.confirm("Estas a punto de borrar tu elemento");
 	
+	//en caso de aceptacion de eliminado
 	if (confirmacion) {
 		//borrando el item
 		$(this).parent().remove();
@@ -159,7 +167,12 @@ $(".eliminarSlide").click(function(){
 		//Eliminar item de la base de datos
 		var borrarItem = new FormData();
 
+		//item para ajax con id para borrado de ruta
 		borrarItem.append("idSlide", idSlide);
+
+		//item para ajax con ruta para borrado del archivo del server
+		borrarItem.append("rutaSlide", rutaSlide);
+
 		//url porque esto se invoca en index.php desde TemplateCOntroller()
 		$.ajax({
 			url: 'views/ajax/gestorSlide.php',
@@ -191,6 +204,7 @@ $(".eliminarSlide").click(function(){
 
 $("#columnasSlide").on("click",".eliminarAjaxSlide", function(){
   	idSlide = $(this).parent().attr("id");
+  	rutaSlide = $(this).attr("ruta");
 	confirmacion = window.confirm("Estas a punto de borrar tu elemento");
 	
 	if (confirmacion) {
@@ -206,6 +220,9 @@ $("#columnasSlide").on("click",".eliminarAjaxSlide", function(){
 		var borrarItem = new FormData();
 
 		borrarItem.append("idSlide", idSlide);
+		//item para ajax con ruta para borrado del archivo del server
+		borrarItem.append("rutaSlide", rutaSlide);
+
 		//url porque esto se invoca en index.php desde TemplateCOntroller()
 		$.ajax({
 			url: 'views/ajax/gestorSlide.php',
