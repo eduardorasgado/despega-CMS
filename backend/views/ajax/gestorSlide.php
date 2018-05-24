@@ -39,7 +39,19 @@ class Ajax
 
 #OBJETOS -------------------------------------------
 
-$a = new Ajax();
-$a->nombreImagen = $_FILES["imagen"]["name"];
-$a->imagenTemporal = $_FILES["imagen"]["tmp_name"];
-$a->gestorSlideAjax();
+if (isset($_FILES["imagen"]["name"])) 
+{
+	#Instancia para subir
+	$upload = new Ajax();
+	$upload->nombreImagen = $_FILES["imagen"]["name"];
+	$upload->imagenTemporal = $_FILES["imagen"]["tmp_name"];
+	$upload->gestorSlideAjax();
+}
+
+if (isset($_POST["idSlide"])) 
+{
+	#instancia para borrar
+	$delete = new Ajax();
+	$delete->idSlide = $_POST["idSlide"];
+	$delete->eliminarSlideAjax();
+}
