@@ -55,7 +55,8 @@ class slideControllers
 				imagepng($origen, $ruta);
 				
 				//guardar ruta de imagen
-				if (slideModels::subirImagenSlideModel($ruta, "slide")) {
+				if (slideModels::subirImagenSlideModel($ruta, "slide"))
+				{
 					$respuesta = slideModels::mostrarImagenModel($ruta, "slide");
 
 					$dataSlide = [
@@ -80,7 +81,8 @@ class slideControllers
 				imagejpeg($origen,$ruta);
 
 				//sibir la ruta a la DB
-				if (slideModels::subirImagenSlideModel($ruta, "slide")) {
+				if (slideModels::subirImagenSlideModel($ruta, "slide")) 
+				{
 					$respuesta = slideModels::mostrarImagenModel($ruta, "slide");
 					
 					$dataSlide = [
@@ -98,5 +100,15 @@ class slideControllers
 			}
 			
 		}
+	}
+
+	public function showSlidesInViewController(){
+		$response = slideModels::showSlidesInViewModel("slide");
+
+		if ($response) {
+			//regresando todos los slides en un json
+			return json_decode($response);
+		}
+		return false;
 	}
 }

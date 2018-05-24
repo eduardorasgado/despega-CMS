@@ -13,14 +13,15 @@ class slideModels
 
 		$stmt->execute();
 
-		//Entregando todos los slides
+		//Entregando el slide especifico
 		$data = $stmt->fetch();
 		$stmt = null;
 		return $data;
 	}
 
 	//Para subir la imagen slide (ruta) a la db
-	public function subirImagenSlideModel($ruta, $tabla){
+	public function subirImagenSlideModel($ruta, $tabla)
+	{
 
 		$query = "INSERT INTO $tabla (ruta) VALUES (:ruta)";
 
@@ -35,5 +36,22 @@ class slideModels
 		$stmt = null;
 		return false;
 
+	}
+
+	//traer las imagenes para mostrarlas todas
+	public function showSlidesInViewModel($tabla)
+	{
+		$query = "SELECT * FROM $tabla";
+
+		$stmt = ConexionModels::conexionModel()->prepare($query);
+
+		if ($stmt->execute())
+		{		
+			//Entregando todos los slides
+			$data = $stmt->fetchAll();
+			$stmt = null;
+			return $data;
+		}
+		return false;
 	}
 }
