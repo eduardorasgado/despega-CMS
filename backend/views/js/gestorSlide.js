@@ -155,6 +155,23 @@ $(".eliminarSlide").click(function(){
 		if ($('#columnasSlide').html() == 0) {
 			$('#columnasSlide').css({"height":"150px"});
 		}
+
+		//Eliminar item de la base de datos
+		var borrarItem = new FormData();
+
+		borrarItem.append("idSlide", idSlide);
+		//url porque esto se invoca en index.php desde TemplateCOntroller()
+		$.ajax({
+			url: 'views/ajax/gestorSlide.php',
+			method: 'POST',
+			data: borrarItem,
+			cache: false,
+			contentType: false,
+			processData: false,
+			success: function(respuesta){
+				
+			}
+		});
 	}
 })
 
