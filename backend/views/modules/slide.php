@@ -52,76 +52,38 @@ include "views/modules/header.php";
 	
 	<ul id="ordenarTextSlide">
 
-	       <?php if(!empty($slides)): ?>
-				 <?php foreach($slides as $key => $value): ?>
-
-				 	<li>
-				       	<img src="<?php echo substr($value["ruta"], 6); ?>"> 	
-				       	<div class="slideCaption">
-				       		<h3><?php echo $value["titulo"]; ?></h3>
-					   		<p><?php echo $value["descripcion"]; ?></p>
-				       	</div>
-			       </li>
-
-				 <?php endforeach ?>
-			<?php endif ?>
-
-
 
 		 <?php if(!empty($slides)): ?>
 			 <?php foreach($slides as $key => $value): ?>
-
 			 	<li>
-					<img src=<?php echo substr($value["ruta"], 6); ?> class="img-thumbnail">
-					<input type="text" class="form-control" placeholder="Título">
-					<textarea row="5" class="form-control" placeholder="Descripción"></textarea>
-					<button class="btn btn-info pull-right" style="margin:10px">Guardar</button>
+					<span class="fa fa-pencil" style="background:blue"></span>
+					<img src="<?php echo substr($value["ruta"], 6); ?>" style="float:left; margin-bottom:10px" width="80%">
+					<h1><?php if(isset($value["titulo"])){echo $value["titulo"];} ?></h1>
+					<p><?php if(isset($value["descripcion"])){echo $value["descripcion"];} ?></p>
 				</li>
 
 			 <?php endforeach ?>
 		<?php endif ?>
-		<!--<li>
-			<span class="fa fa-pencil" style="background:blue"></span>
-			<img src="views/images/slide/slide01.jpg" style="float:left; margin-bottom:10px" width="80%">
-			<h1>Lorem Ipsum</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-		</li>
 
-		<li>
-			<img src="views/images/slide/slide02.jpg" class="img-thumbnail">
-			<input type="text" class="form-control" placeholder="Título">
-			<textarea row="5" class="form-control" placeholder="Descripción"></textarea>
-			<button class="btn btn-info pull-right" style="margin:10px">Guardar</button>
-		</li>
+	</ul>
+</div>
 
-		<li>
-			<img src="views/images/slide/slide03.jpg" class="img-thumbnail">
-			<input type="text" class="form-control" placeholder="Título">
-			<textarea row="5" class="form-control" placeholder="Descripción"></textarea>
-			<button class="btn btn-info pull-right" style="margin:10px">Guardar</button>
-		</li>
 
-		<li>
-			<span class="fa fa-pencil" style="background:blue"></span>
-			<img src="views/images/slide/slide04.jpg" style="float:left; margin-bottom:10px" width="80%">
-			<h1>Lorem Ipsum</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-		</li>
+<div id="slide" class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
+	<ul>
+		<?php if(!empty($slides)): ?>
+			 <?php foreach($slides as $key => $value): ?>
 
-		<li>
-			<img src="views/images/slide/slide01.jpg" class="img-thumbnail">
-			<input type="text" class="form-control" placeholder="Título">
-			<textarea row="5" class="form-control" placeholder="Descripción"></textarea>
-			<button class="btn btn-info pull-right" style="margin:10px">Guardar</button>
-		</li>
+			 	<li>
+			       	<img src="<?php echo substr($value["ruta"], 6); ?>"> 	
+			       	<div class="slideCaption">
+			       		<h3><?php if(isset($value["titulo"])){echo $value["titulo"];} ?></h3>
+				   		<p><?php if(isset($value["descripcion"])){echo $value["descripcion"];} ?></p>
+			       	</div>
+		       </li>
 
-		<li>
-			<img src="views/images/slide/slide02.jpg" class="img-thumbnail">
-			<input type="text" class="form-control" placeholder="Título">
-			<textarea row="5" class="form-control" placeholder="Descripción"></textarea>
-			<button class="btn btn-info pull-right" style="margin:10px">Guardar</button>
-		</li> -->
-
+			 <?php endforeach ?>
+		<?php endif ?>
 	</ul>
 </div>
 

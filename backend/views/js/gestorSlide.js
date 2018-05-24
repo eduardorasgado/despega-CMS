@@ -105,10 +105,14 @@ $('#columnasSlide').on("drop", function(e)
 				{
 					//recibir el json, obtener ruta y corta los primeros: ../../
 					ruta = respuesta["ruta"].slice(6);
+					//operadores ternarios, si no estan definidos mandar un espacio solamente
+					titulo = (typeof(respuesta["titulo"]) !== 'undefined') ? respuesta["titulo"] : " ";
+					descripcion = (typeof(respuesta["descripcion"]) !== 'undefined') ? respuesta["descripcion"] : " ";
 					$(".alerta2").remove();
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Tu imagen se ha subido con exito</div>");		
 					$("#columnasSlide").append("<li class='bloqueSlide'><span class='fa fa-times'></span><img src='"+ruta+"' class='handleImg'></li>");
-				
+					$("#ordenarTextSlide").append("<li><span class='fa fa-pencil' style='background:blue'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");					
+
 					//alto del cotenedor punteado reestablecido
 					$('#columnasSlide').css({"height":"auto"});
 				}
