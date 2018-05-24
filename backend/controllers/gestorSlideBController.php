@@ -54,8 +54,12 @@ class slideControllers
 				//guardar ruta de imagen
 				if (slideModels::subirImagenSlideModel($ruta, "slide")) {
 					$respuesta = slideModels::mostrarImagenModel($ruta, "slide");
-					var_dump($respuesta);
-					return true;
+
+					$dataSlide = [
+						"ruta" => $respuesta["ruta"],
+					];
+
+					return json_encode($dataSlide);
 				}
 				//en caso de fallar conexion a db
 				return false;
@@ -74,8 +78,11 @@ class slideControllers
 				//sibir la ruta a la DB
 				if (slideModels::subirImagenSlideModel($ruta, "slide")) {
 					$respuesta = slideModels::mostrarImagenModel($ruta, "slide");
-					var_dump($respuesta);
-					return true;
+					
+					$dataSlide = [
+						"ruta" => $respuesta["ruta"],
+					];
+					return json_encode($dataSlide);
 				}
 				//En caso de fallar el acceso a la database
 				return false;
