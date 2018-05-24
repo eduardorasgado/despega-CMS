@@ -3,7 +3,7 @@
 
 class slideControllers
 {
-	//Para mostrar la imagen slide con AJAX
+	//Para subir al server y mostrar la imagen slide con AJAX
 	public function mostrarImagenController($datos)
 	{
 		//capturamos ancho y alto con la propiedad getimagesize
@@ -51,19 +51,16 @@ class slideControllers
 				//crea una imagen a partir de un fichero o url
 				$origen = imagecreatefrompng($datos["imagenTemporal"]);
 
+				//cortar la imagen a 1600 x 600
+				$cropped = self::cropImage($origen);
+
 				//guardamos en fisico
-				imagepng($origen, $ruta);
+				imagepng($cropped, $ruta);
 				
-				//guardar ruta de imagen
-				if (slideModels::subirImagenSlideModel($ruta, "slide"))
-				{
-					$respuesta = slideModels::mostrarImagenModel($ruta, "slide");
-
-					$dataSlide = [
-						"ruta" => $respuesta["ruta"],
-					];
-
-					return json_encode($dataSlide);
+				//guardar ruta de imagen y traer json de ella
+				$jsonEnconded = self::bringJSON($ruta);
+				if ($jsonEnconded) {
+					return $jsonEnconded;
 				}
 				//en caso de fallar conexion a db
 				return false;
@@ -77,18 +74,18 @@ class slideControllers
 				//crea una imagen a partir de un fichero o url
 				$origen = imagecreatefromjpeg($datos["imagenTemporal"]);
 
-				//guardar los archivos en la carpeta del servidor
-				imagejpeg($origen,$ruta);
+				//Cortar si se pasa de las proporciones
+				//imagecrop recorta una imagen usando las 
+				//coordenasdas, el tamaño x, y ancho y alto dados
+				$cropped = self::cropImage($origen);
 
-				//sibir la ruta a la DB
-				if (slideModels::subirImagenSlideModel($ruta, "slide")) 
-				{
-					$respuesta = slideModels::mostrarImagenModel($ruta, "slide");
-					
-					$dataSlide = [
-						"ruta" => $respuesta["ruta"],
-					];
-					return json_encode($dataSlide);
+				//guardar los archivos en la carpeta del servidor
+				imagejpeg($cropped,$ruta);
+
+				//subir la ruta a la DB y traer un json de ella
+				$jsonEnconded = self::bringJSON($ruta);
+				if ($jsonEnconded) {
+					return $jsonEnconded;
 				}
 				//En caso de fallar el acceso a la database
 				return false;
@@ -102,7 +99,8 @@ class slideControllers
 		}
 	}
 
-	public function showSlidesInViewController(){
+	public function showSlidesInViewController()
+	{
 		$response = slideModels::showSlidesInViewModel("slide");
 
 		if ($response) {
@@ -111,5 +109,30 @@ class slideControllers
 		}
 		return false;
 	}
-	
+
+	private function cropImage($origen)
+	{
+		$destiny = imagecrop($origen, [
+									"x" => 0,
+									"y" => 0,
+									"width" => 1600,
+									"height" => 600,
+								]);
+		return $destiny;
+	}
+
+	private function bringJSON($ruta)
+	{
+		if (slideModels::subirImagenSlideModel($ruta, "slide")) 
+			{
+				$respuesta = slideModels::mostrarImagenModel($ruta, "slide");
+				
+				$dataSlide = [
+					"ruta" => $respuesta["ruta"],
+				];
+				return json_encode($dataSlide);
+			}
+		return false;
+	}
+
 }
