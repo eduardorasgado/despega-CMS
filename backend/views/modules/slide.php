@@ -31,7 +31,7 @@ include "views/modules/header.php";
 
 					<li id="<?php echo $value["id"]; ?>" class="bloqueSlide">
 						<span class="fa fa-times eliminarSlide"></span>
-				       	<img src="<?php echo substr($value["ruta"], 6); ?>" class="handleImg">
+				       	<img src="<?php echo substr($value["ruta"], 6); ?>" class="handleImg"/>
 		       		</li>
 	       		<?php endforeach ?>
        		<?php endif ?>

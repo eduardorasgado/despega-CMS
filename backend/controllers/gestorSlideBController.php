@@ -128,6 +128,7 @@ class slideControllers
 				$respuesta = slideModels::mostrarImagenModel($ruta, "slide");
 				
 				$dataSlide = [
+					"id" => $respuesta["id"],
 					"ruta" => $respuesta["ruta"],
 				];
 				return json_encode($dataSlide);

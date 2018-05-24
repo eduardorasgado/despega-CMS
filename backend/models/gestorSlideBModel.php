@@ -5,7 +5,7 @@ class slideModels
 	//traer la base de datos para traer imagen
 	public function mostrarImagenModel($ruta, $tabla)
 	{
-		$query = "SELECT ruta FROM $tabla WHERE ruta=:ruta";
+		$query = "SELECT id, ruta FROM $tabla WHERE ruta=:ruta";
 
 		$stmt = ConexionModels::conexionModel()->prepare($query);
 

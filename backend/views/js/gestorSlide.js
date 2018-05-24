@@ -110,7 +110,7 @@ $('#columnasSlide').on("drop", function(e)
 					descripcion = (typeof(respuesta["descripcion"]) !== 'undefined') ? respuesta["descripcion"] : " ";
 					$(".alerta2").remove();
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Tu imagen se ha subido con exito</div>");		
-					$("#columnasSlide").append("<li class='bloqueSlide'><span class='fa fa-times'></span><img src='"+ruta+"' class='handleImg'></li>");
+					$("#columnasSlide").append("<li id='"+respuesta['id']+"' class='bloqueSlide'><span class='fa fa-times eliminarAjaxSlide'></span><img src='"+ruta+"' class='handleImg'></li>");
 					$("#ordenarTextSlide").append("<li><span class='fa fa-pencil' style='background:blue'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");					
 					//$("#slideCarousel").append("<li><img src='"+ruta+"'><div class='slideCaption'><h3>"+titulo+"</h3><p>"+descripcion+"</p></div></li>");
 
@@ -133,7 +133,7 @@ $('#columnasSlide').on("drop", function(e)
 $('#columnasSlide').on("dragleave", function(e)
 {
 	//mostrar el patron al momento de llevar una imagen a  arrastrar
-	$('#columnasSlide').css({"background":"white"})
+	$('#columnasSlide').css({"background":"white","opacity":"1"})
 
 });
 
@@ -150,3 +150,16 @@ $(".eliminarSlide").click(function(){
 
 /*=====  End of ELIMINAR ITEM SLIDE  ======*/
 
+/*========================================================
+=            ON CLICK PARA ELIMINAR ITEM AJAX            =
+========================================================*/
+
+//No se puede hacer .click en un elemento que aun no existe en la pagina
+//como lo es el caso de los elementos ajax, para ello acudimos a esta funcion
+
+$("#columnasSlide").on("click",".eliminarAjaxSlide", function(){
+  	idSlide = $(this).parent().attr("id");
+	window-alert(idSlide);
+});
+
+/*=====  End of ON CLICK PARA ELIMINAR ITEM AJAX  ======*/
