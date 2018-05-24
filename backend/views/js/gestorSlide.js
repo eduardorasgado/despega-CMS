@@ -145,7 +145,12 @@ $('#columnasSlide').on("dragleave", function(e)
 
 $(".eliminarSlide").click(function(){
 	idSlide = $(this).parent().attr("id");
-	window-alert(idSlide);
+	confirmacion = window.confirm("Estas a punto de borrar tu elemento");
+	
+	if (confirmacion) {
+		$(this).parent().remove();
+		$('#columnasSlide').css({"height":"150px"});
+	}
 })
 
 /*=====  End of ELIMINAR ITEM SLIDE  ======*/
@@ -159,7 +164,12 @@ $(".eliminarSlide").click(function(){
 
 $("#columnasSlide").on("click",".eliminarAjaxSlide", function(){
   	idSlide = $(this).parent().attr("id");
-	window-alert(idSlide);
+	confirmacion = window.confirm("Estas a punto de borrar tu elemento");
+	
+	if (confirmacion) {
+		$(this).parent().remove();
+		$('#columnasSlide').css({"height":"150px"});
+	}
 });
 
 /*=====  End of ON CLICK PARA ELIMINAR ITEM AJAX  ======*/
