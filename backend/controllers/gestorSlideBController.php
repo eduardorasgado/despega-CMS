@@ -1,5 +1,6 @@
 <?php 
 
+
 class slideControllers
 {
 	public function mostrarImagenController($datos)
@@ -49,7 +50,15 @@ class slideControllers
 
 				//guardamos en fisico
 				imagepng($origen, $ruta);
-				return true;
+				
+				//guardar ruta de imagen
+				if (slideModels::subirImagenSlideModel($ruta, "slide")) {
+					$respuesta = slideModels::mostrarImagenModel($ruta, "slide");
+					var_dump($respuesta);
+					return true;
+				}
+				//en caso de fallar conexion a db
+				return false;
 			}
 
 			//En caso que la imagen sea jpg
@@ -61,7 +70,15 @@ class slideControllers
 
 				//guardar los archivos en la carpeta del servidor
 				imagejpeg($origen,$ruta);
-				return true;
+
+				//sibir la ruta a la DB
+				if (slideModels::subirImagenSlideModel($ruta, "slide")) {
+					$respuesta = slideModels::mostrarImagenModel($ruta, "slide");
+					var_dump($respuesta);
+					return true;
+				}
+				//En caso de fallar el acceso a la database
+				return false;
 			}
 			else
 			{
