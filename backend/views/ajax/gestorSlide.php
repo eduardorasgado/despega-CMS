@@ -24,7 +24,7 @@ class Ajax
 	}
 
 	//Eliminar item slide
-	public $slide;
+	public $idSlide;
 
 	public function eliminarSlideAjax()
 	{

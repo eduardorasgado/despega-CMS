@@ -62,7 +62,7 @@ class slideModels
 
 		$stmt = ConexionModels::conexionModel()->prepare($query);
 
-		$stmt->bindParam(":id",datos["idSlide"], PDO::PARAM_INT);
+		$stmt->bindParam(":id",$datos["idSlide"], PDO::PARAM_INT);
 
 		if ($stmt->execute()) {
 			$stmt = null;
