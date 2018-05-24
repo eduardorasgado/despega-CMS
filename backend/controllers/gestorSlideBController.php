@@ -3,9 +3,11 @@
 
 class slideControllers
 {
+	//Para mostrar la imagen slide con AJAX
 	public function mostrarImagenController($datos)
 	{
-		//capturamos ancho y algo con la propiedad getimagesize
+		//capturamos ancho y alto con la propiedad getimagesize
+		//list() asgina una lista de variables en una sola operacion
 		list($ancho, $alto) = getimagesize($datos["imagenTemporal"]);
 		
 		if ($ancho < 1600 || $alto < 600) 
@@ -45,7 +47,8 @@ class slideControllers
 			if ($extension == "png")
 			{	
 				//agregamos extension debida
-				$ruta = $ruta.".png";		
+				$ruta = $ruta.".png";
+				//crea una imagen a partir de un fichero o url
 				$origen = imagecreatefrompng($datos["imagenTemporal"]);
 
 				//guardamos en fisico
@@ -70,6 +73,7 @@ class slideControllers
 			{	
 				$ruta = $ruta.".jpg";
 				//variable donde guardaremos la imagen
+				//crea una imagen a partir de un fichero o url
 				$origen = imagecreatefromjpeg($datos["imagenTemporal"]);
 
 				//guardar los archivos en la carpeta del servidor

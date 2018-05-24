@@ -2,6 +2,7 @@
 require_once "conexionBModel.php";
 class slideModels
 {
+	//traer la base de datos para traer imagen
 	public function mostrarImagenModel($ruta, $tabla)
 	{
 		$query = "SELECT ruta FROM $tabla WHERE ruta=:ruta";
@@ -18,6 +19,7 @@ class slideModels
 		return $data;
 	}
 
+	//Para subir la imagen slide (ruta) a la db
 	public function subirImagenSlideModel($ruta, $tabla){
 
 		$query = "INSERT INTO $tabla (ruta) VALUES (:ruta)";

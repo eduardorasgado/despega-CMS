@@ -3,8 +3,11 @@
 require_once("../../models/gestorSlideBModel.php");
 require_once("../../controllers/gestorSlideBController.php");
 
+
+#CLASE Y METODOS ------------------------------------
 class Ajax
 {
+	//Subir imagen del slide
 	public $nombreImagen;
 	public $imagenTemporal;
 
@@ -16,10 +19,12 @@ class Ajax
 		];
 
 		$respuesta = slideControllers::mostrarImagenController($datos);
-		//Mostrar imagen que estamos subiendo
+		//Mandar imagen que estamos subiendo al JS gestorSlide
 		echo $respuesta;
 	}
 }
+
+#OBJETOS -------------------------------------------
 
 $a = new Ajax();
 $a->nombreImagen = $_FILES["imagen"]["name"];
