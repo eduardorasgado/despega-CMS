@@ -54,4 +54,15 @@ class slideModels
 		}
 		return false;
 	}
+
+	//eliminar ruta del slide enviado por ajax en la db
+	public function deleteSlideModel($datos, $tabla)
+	{
+		$query = "DELETE FROM $tabla WHERE id=:id";
+
+		$stmt = ConexionModels::conexionModel()->prepare($query);
+
+		$stmt->bindParam(":id",datos["id"], PDO::PARAM_STR);
+
+	}
 }

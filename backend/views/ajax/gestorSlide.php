@@ -32,7 +32,7 @@ class Ajax
 			"idSlide" => $this->idSlide,
 		];
 
-		$respuesta = slideControllers::eliminarSlideController($datos);
+		$respuesta = slideControllers::deleteSlideController($datos);
 		echo $respuesta;
 	}
 }

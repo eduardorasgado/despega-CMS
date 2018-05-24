@@ -59,7 +59,8 @@ class slideControllers
 				
 				//guardar ruta de imagen y traer json de ella
 				$jsonEnconded = self::bringJSON($ruta);
-				if ($jsonEnconded) {
+				if ($jsonEnconded)
+				{
 					return $jsonEnconded;
 				}
 				//en caso de fallar conexion a db
@@ -84,7 +85,8 @@ class slideControllers
 
 				//subir la ruta a la DB y traer un json de ella
 				$jsonEnconded = self::bringJSON($ruta);
-				if ($jsonEnconded) {
+				if ($jsonEnconded)
+				{
 					return $jsonEnconded;
 				}
 				//En caso de fallar el acceso a la database
@@ -109,6 +111,16 @@ class slideControllers
 		}
 		return false;
 	}
+
+	//eliminar item del slide view
+	public function deleteSlideController($datos)
+	{
+		$response = slideModels::deleteSlideModel($datos, "slide");
+
+	}
+
+
+	#UTILIDADES ----------------------------------------
 
 	private function cropImage($origen)
 	{
