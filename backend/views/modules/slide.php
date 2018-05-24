@@ -20,6 +20,21 @@ include "views/modules/header.php";
 	<p><span class="fa fa-arrow-down"></span>  Arrastra aquí tu imagen (tamaño recomendado: 1600px * 600px y 2MB o menos).</p>
 		
 		<ul id="columnasSlide">
+			<?php 
+
+				$slideObjects = new slideControllers();
+				$slides = $slideObjects->showSlidesInViewController();
+
+			 ?>
+			 <?php if(!empty($slides)): ?>
+				 <?php foreach($slides as $key => $value): ?>
+
+					<li class="bloqueSlide">
+						<span class="fa fa-times"></span>
+				       	<img src="<?php echo substr($value["ruta"], 6); ?>" class="handleImg">
+		       		</li>
+	       		<?php endforeach ?>
+       		<?php endif ?>
 			
 		</ul>
 
@@ -36,15 +51,19 @@ include "views/modules/header.php";
 <hr>
 	
 	<ul id="ordenarTextSlide">
-		<?php 
 
-		$slideObjects = new slideControllers();
-		$slides = $slideObjects->showSlidesInViewController();
-		foreach ($slides as $key => $value) {
-			echo $value["ruta"]."<br/>";
-		}
+		 <?php if(!empty($slides)): ?>
+			 <?php foreach($slides as $key => $value): ?>
 
-		 ?>
+			 	<li>
+					<img src=<?php echo substr($value["ruta"], 6); ?> class="img-thumbnail">
+					<input type="text" class="form-control" placeholder="Título">
+					<textarea row="5" class="form-control" placeholder="Descripción"></textarea>
+					<button class="btn btn-info pull-right" style="margin:10px">Guardar</button>
+				</li>
+
+			 <?php endforeach ?>
+		<?php endif ?>
 		<!--<li>
 			<span class="fa fa-pencil" style="background:blue"></span>
 			<img src="views/images/slide/slide01.jpg" style="float:left; margin-bottom:10px" width="80%">

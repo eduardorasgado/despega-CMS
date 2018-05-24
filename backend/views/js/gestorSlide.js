@@ -41,7 +41,7 @@ $('#columnasSlide').on("drop", function(e)
 	e.preventDefault();
 	e.stopPropagation();
 	//mostrar el patron al momento de llevar una imagen a  arrastrar
-	$('#columnasSlide').css({"background":"white"});
+	$('#columnasSlide').css({"background":"white","opacity":"1"});
 
 	//almacenando el archivo en una variable
 	var archivo = e.originalEvent.dataTransfer.files;
