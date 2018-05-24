@@ -116,7 +116,13 @@ $('#columnasSlide').on("drop", function(e)
 					//alto del cotenedor punteado reestablecido
 					$('#columnasSlide').css({"height":"auto"});
 				}
-			}
+			},
+			error: function (xhr, ajaxOptions, thrownError) {
+		        //alert(xhr.status);
+		        //alert(thrownError);
+		        $("#status").remove();
+		        $("#columnasSlide").before("<div class='alert alert-warning alerta2 text-center'> Tu imagen no tiene las dimensiones adecuadas.</div>");
+		    }
 		});
 	}
 
