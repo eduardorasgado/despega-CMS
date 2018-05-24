@@ -30,7 +30,7 @@ include "views/modules/header.php";
 				 <?php foreach($slides as $key => $value): ?>
 
 					<li id="<?php echo $value["id"]; ?>" class="bloqueSlide">
-						<span class="fa fa-times eliminarSlide"></span>
+						<span class="fa fa-times eliminarSlide" ruta=<?php echo $value["ruta"]; ?>></span>
 				       	<img src="<?php echo substr($value["ruta"], 6); ?>" class="handleImg"/>
 		       		</li>
 	       		<?php endforeach ?>
