@@ -85,6 +85,7 @@ $('#columnasSlide').on("drop", function(e)
 			cache: false,
 			contentType: false,
 			processData: false,
+			dataType: "json",
 			beforeSend: function(){
 				//gif de carga
 				$("#columnasSlide").before("<img src='views/images/status.gif' id='status'>");
@@ -102,10 +103,11 @@ $('#columnasSlide').on("drop", function(e)
 				}
 				else
 				{
+					//recibir el json, obtener ruta y corta los primeros: ../../
+					ruta = respuesta["ruta"].slice(6);
 					$(".alerta2").remove();
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Tu imagen se ha subido con exito</div>");		
-					$("#columnasSlide").append("<li class='bloqueSlide'><span class='fa fa-times'></span><img src='views/images/slide/slide01.jpg' class='handleImg'></li>");
-					console.log(respuesta);
+					$("#columnasSlide").append("<li class='bloqueSlide'><span class='fa fa-times'></span><img src='"+ruta+"' class='handleImg'></li>");
 				}
 			}
 		});
