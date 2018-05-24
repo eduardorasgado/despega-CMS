@@ -111,7 +111,7 @@ $('#columnasSlide').on("drop", function(e)
 					$(".alerta2").remove();
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Tu imagen se ha subido con exito</div>");		
 					$("#columnasSlide").append("<li id='"+respuesta['id']+"' class='bloqueSlide'><span class='fa fa-times eliminarAjaxSlide'></span><img src='"+ruta+"' class='handleImg'></li>");
-					$("#ordenarTextSlide").append("<li><span class='fa fa-pencil' style='background:blue'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");					
+					$("#ordenarTextSlide").append("<li id='item"+respuesta['id']+"'><span class='fa fa-pencil' style='background:blue'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");					
 					//$("#slideCarousel").append("<li><img src='"+ruta+"'><div class='slideCaption'><h3>"+titulo+"</h3><p>"+descripcion+"</p></div></li>");
 
 					//alto del cotenedor punteado reestablecido
@@ -148,8 +148,13 @@ $(".eliminarSlide").click(function(){
 	confirmacion = window.confirm("Estas a punto de borrar tu elemento");
 	
 	if (confirmacion) {
+		//borrando el item
 		$(this).parent().remove();
-		$('#columnasSlide').css({"height":"150px"});
+		//borrando el item editor
+		$("#item"+idSlide).remove();
+		if ($('#columnasSlide').html() == 0) {
+			$('#columnasSlide').css({"height":"150px"});
+		}
 	}
 })
 
@@ -167,8 +172,14 @@ $("#columnasSlide").on("click",".eliminarAjaxSlide", function(){
 	confirmacion = window.confirm("Estas a punto de borrar tu elemento");
 	
 	if (confirmacion) {
+		//borramos el item
 		$(this).parent().remove();
-		$('#columnasSlide').css({"height":"150px"});
+		//borramos item editor con el id
+		$("#item"+idSlide).remove();
+		if ($('#columnasSlide').html() == 0) {
+			$('#columnasSlide').css({"height":"150px"});
+		}
+		
 	}
 });
 

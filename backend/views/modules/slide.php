@@ -55,7 +55,7 @@ include "views/modules/header.php";
 
 		 <?php if(!empty($slides)): ?>
 			 <?php foreach($slides as $key => $value): ?>
-			 	<li>
+			 	<li id="item<?php echo $value["id"]; ?>">
 					<span class="fa fa-pencil" style="background:blue"></span>
 					<img src="<?php echo substr($value["ruta"], 6); ?>" style="float:left; margin-bottom:10px" width="80%">
 					<h1><?php if(isset($value["titulo"])){echo $value["titulo"];} ?></h1>
