@@ -107,7 +107,7 @@ class slideControllers
 
 		if ($response) {
 			//regresando todos los slides en un json
-			return json_decode($response);
+			return $response;
 		}
 		return false;
 	}

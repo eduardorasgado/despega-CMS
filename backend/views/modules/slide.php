@@ -36,7 +36,15 @@ include "views/modules/header.php";
 <hr>
 	
 	<ul id="ordenarTextSlide">
+		<?php 
 
+		$slideObjects = new slideControllers();
+		$slides = $slideObjects->showSlidesInViewController();
+		foreach ($slides as $key => $value) {
+			echo $value["ruta"]."<br/>";
+		}
+
+		 ?>
 		<!--<li>
 			<span class="fa fa-pencil" style="background:blue"></span>
 			<img src="views/images/slide/slide01.jpg" style="float:left; margin-bottom:10px" width="80%">
