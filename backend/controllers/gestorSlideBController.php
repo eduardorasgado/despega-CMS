@@ -111,4 +111,5 @@ class slideControllers
 		}
 		return false;
 	}
+	
 }

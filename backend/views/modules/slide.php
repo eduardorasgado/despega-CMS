@@ -52,6 +52,22 @@ include "views/modules/header.php";
 	
 	<ul id="ordenarTextSlide">
 
+	       <?php if(!empty($slides)): ?>
+				 <?php foreach($slides as $key => $value): ?>
+
+				 	<li>
+				       	<img src="<?php echo substr($value["ruta"], 6); ?>"> 	
+				       	<div class="slideCaption">
+				       		<h3><?php echo $value["titulo"]; ?></h3>
+					   		<p><?php echo $value["descripcion"]; ?></p>
+				       	</div>
+			       </li>
+
+				 <?php endforeach ?>
+			<?php endif ?>
+
+
+
 		 <?php if(!empty($slides)): ?>
 			 <?php foreach($slides as $key => $value): ?>
 
