@@ -108,6 +108,9 @@ $('#columnasSlide').on("drop", function(e)
 					$(".alerta2").remove();
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Tu imagen se ha subido con exito</div>");		
 					$("#columnasSlide").append("<li class='bloqueSlide'><span class='fa fa-times'></span><img src='"+ruta+"' class='handleImg'></li>");
+				
+					//alto del cotenedor punteado reestablecido
+					$('#columnasSlide').css({"height":"auto"});
 				}
 			}
 		});

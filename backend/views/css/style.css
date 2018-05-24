@@ -123,6 +123,12 @@ INICIO
 /*=============================================
 SLIDE            
 =============================================*/
+/*Gif to load slide*/
+#status {
+	position: relative;
+	display: block;
+	margin: auto;
+}
 
 #slide{
 	position: relative;	
