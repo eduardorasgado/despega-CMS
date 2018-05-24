@@ -41,7 +41,7 @@ class slideModels
 	//traer las imagenes para mostrarlas todas
 	public function showSlidesInViewModel($tabla)
 	{
-		$query = "SELECT ruta, titulo, descripcion FROM $tabla ORDER BY orden ASC";
+		$query = "SELECT id, ruta, titulo, descripcion FROM $tabla ORDER BY orden ASC";
 
 		$stmt = ConexionModels::conexionModel()->prepare($query);
 

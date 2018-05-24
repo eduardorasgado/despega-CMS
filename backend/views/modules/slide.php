@@ -29,8 +29,8 @@ include "views/modules/header.php";
 			 <?php if(!empty($slides)): ?>
 				 <?php foreach($slides as $key => $value): ?>
 
-					<li class="bloqueSlide">
-						<span class="fa fa-times"></span>
+					<li id="<?php echo $value["id"]; ?>" class="bloqueSlide">
+						<span class="fa fa-times eliminarSlide"></span>
 				       	<img src="<?php echo substr($value["ruta"], 6); ?>" class="handleImg">
 		       		</li>
 	       		<?php endforeach ?>
@@ -68,9 +68,8 @@ include "views/modules/header.php";
 	</ul>
 </div>
 
-
 <div id="slide" class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
-	<ul>
+	<ul id="slideCarousel">
 		<?php if(!empty($slides)): ?>
 			 <?php foreach($slides as $key => $value): ?>
 
