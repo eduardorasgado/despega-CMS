@@ -72,4 +72,10 @@ class slideModels
 		return false;
 
 	}
+
+	//actualizar slide especifico desde la DB
+	public function updateSlideModel()
+	{
+		return true;
+	}
 }
