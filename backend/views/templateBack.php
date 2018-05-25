@@ -53,9 +53,9 @@
 	<script src="views/js/jquery-ui.min.js"></script>
 	<script src="views/js/sweetalert.min.js"></script>
 
-	<script src="views/js/script.js"></script>
 	<script type="text/javascript" src="views/js/validarIngreso.js"></script>
 	<script type="text/javascript" src="views/js/gestorSlide.js"></script>
+	<script language="JavaScript" src="views/js/script.js"></script>
 	
 </body>
 

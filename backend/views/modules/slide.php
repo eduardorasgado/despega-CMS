@@ -69,6 +69,11 @@ include "views/modules/header.php";
 </div>
 
 <div id="slide" class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
+	<div style="width: 100%;">
+		<button class="btn btn-primary updateSlider" style="float: right; right:0px;">Actualizar slider</button>
+	</div>
+	<br/><br/>
+	<br/>
 	<ul id="slideCarousel">
 		<?php if(!empty($slides)): ?>
 			 <?php foreach($slides as $key => $value): ?>

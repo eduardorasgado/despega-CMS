@@ -114,8 +114,24 @@ $('#columnasSlide').on("drop", function(e)
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Tu imagen se ha subido con exito</div>");		
 					$("#columnasSlide").append("<li id='"+respuesta['id']+"' class='bloqueSlide'><span class='fa fa-times eliminarAjaxSlide' ruta='"+rutaRaw+"'></span><img src='"+ruta+"' class='handleImg'></li>");
 					$("#ordenarTextSlide").append("<li id='item"+respuesta['id']+"'><span class='fa fa-pencil editarSlide' style='background:blue'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");					
-					//$("#slideCarousel").append("<li><img src='"+ruta+"'><div class='slideCaption'><h3>"+titulo+"</h3><p>"+descripcion+"</p></div></li>");
+					$("#slideCarousel").append("<li><img src='"+ruta+"'><div class='slideCaption'><h3>"+titulo+"</h3><p>"+descripcion+"</p></div></li>");
 
+					//actualizar slider en slide
+					//window.setTimeout(function(){window.location ="slide";}, 2000);
+					swal({
+					  position: 'top-end',
+					  type: 'success',
+					  title: 'Cambios guardados',
+					  showConfirmButton: false,
+					  timer: 1000
+					});
+
+					//recargando para actualizar los slides
+					//window.setTimeout(function(){window.location ="slide";}, 500);
+					
+					//añadir un script o recargar el script del carousel
+					//$.getScript('views/js/script.js');
+					
 					//alto del cotenedor punteado reestablecido
 					$('#columnasSlide').css({"height":"auto"});
 				}
@@ -230,6 +246,13 @@ function deleteLogic(idSlide, rutaSlide){
 				}
 				else {
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> La imagen se ha borrado exitosamente</div>");
+					swal({
+					  position: 'top-end',
+					  type: 'success',
+					  title: 'Cambios guardados',
+					  showConfirmButton: false,
+					  timer: 1000
+					});
 				}
 			}
 		});
@@ -342,3 +365,13 @@ function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
 }
 
 /*=====  End of FUNCTION COMPONENT PARA ACTUALIZAR SLIDE DESPUES DE EDITADO  ======*/
+
+/*===================================================================
+=            UPDATE SLIDER ON CLICK ACTION PARA EL BOTON            =
+===================================================================*/
+
+$(".updateSlider").click(function(){
+	window.location.reload();
+});
+
+/*=====  End of UPDATE SLIDER ON CLICK ACTION PARA EL BOTON  ======*/
