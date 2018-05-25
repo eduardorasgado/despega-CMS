@@ -248,8 +248,19 @@ $(".editarSlide").click(function(){
 	rutaSlide = $(this).parent().children("img").attr("src");
 	rutaTitulo = $(this).parent().children("h1").html();
 	rutaDescripcion = $(this).parent().children("p").html();
+	
 	//reemplazar la caja editora off por la editora on
-	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input type='text' class='form-control' placeholder='Título' value='"+rutaTitulo+"'><textarea row='5' class='form-control' placeholder='Descripción'>"+rutaDescripcion+"</textarea><button class='btn btn-info pull-right' style='margin:10px'>Guardar</button>");
+	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input id='enviarTitulo' type='text' class='form-control' placeholder='Título' value='"+rutaTitulo+"'><textarea id='enviarDescripcion' row='5' class='form-control' placeholder='Descripción'>"+rutaDescripcion+"</textarea><button class='btn btn-info pull-right' id='guardaritem"+idSlide+"' style='margin:10px'>Guardar</button>");
+	
+	$("#guardaritem"+idSlide).click(function(){
+		//cortar el idSlide que viene con formato item+id
+		enviarId = idSlide.slice(4);
+		//capturando el value de la etiqueta input con id enviarTitulo
+		enviarTitulo = $("#enviarTitulo").val();
+		enviarDescripcion = $("#enviarDescripcion").val();
+
+		actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion);
+	});
 
 });
 
@@ -266,9 +277,29 @@ $("#ordenarTextSlide").on("click",".editarSlide", function(){
 	rutaTitulo = $(this).parent().children("h1").html();
 	rutaDescripcion = $(this).parent().children("p").html();
 
+	
 	//reemplazar la caja editora off por la editora on
-	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input type='text' class='form-control' placeholder='Título' value='"+rutaTitulo+"'><textarea row='5' class='form-control' placeholder='Descripción'>"+rutaDescripcion+"</textarea><button class='btn btn-info pull-right' style='margin:10px'>Guardar</button>");
+	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input id='enviarTitulo' type='text' class='form-control' placeholder='Título' value='"+rutaTitulo+"'><textarea id='enviarDescripcion' row='5' class='form-control' placeholder='Descripción'>"+rutaDescripcion+"</textarea><button class='btn btn-info pull-right' id='guardaritem"+idSlide+"' style='margin:10px'>Guardar</button>");
+	
+	$("#guardaritem"+idSlide).click(function(){
+		//cortar el idSlide que viene con formato item+id
+		enviarId = idSlide.slice(4);
+		//capturando el value de la etiqueta input con id enviarTitulo
+		enviarTitulo = $("#enviarTitulo").val();
+		enviarDescripcion = $("#enviarDescripcion").val();
 
+		actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion);
+	});
 });
 
 /*=====  End of EDITAR ITEM SLIDE AJAX ELEMENT  ======*/
+
+/*===================================================================================
+=            FUNCTION COMPONENT PARA ACTUALIZAR SLIDE DESPUES DE EDITADO            =
+===================================================================================*/
+
+function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
+	return true;
+}
+
+/*=====  End of FUNCTION COMPONENT PARA ACTUALIZAR SLIDE DESPUES DE EDITADO  ======*/
