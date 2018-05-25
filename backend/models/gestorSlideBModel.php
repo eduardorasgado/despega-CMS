@@ -94,4 +94,21 @@ class slideModels
 		$stmt = null;
 		return false;
 	}
+
+	//entregar el slide que se actualizó
+	public function selectUpdatedSlide($datos, $tabla)
+	{
+		$query = "SELECT titulo, descripcion FROM $tabla WHERE id=:id";
+
+		$stmt = ConexionModels::conexionModel()->prepare($query);
+
+		$stmt->bindParam(":id", $datos["enviarId"], PDO::PARAM_INT);
+
+		if ($stmt->execute()) {
+			$slideData = $stmt->fetch();
+			$stmt = null;
+			return $slideData;
+		}
+		return false;
+	}
 }

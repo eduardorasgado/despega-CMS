@@ -313,14 +313,15 @@ function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
 			cache: false,
 			contentType: false,
 			processData: false,
-			//dataType:"json",
+			dataType:"json",
 			success: function(respuesta){
 				if (respuesta == false) {
 					console.log("operación fallida");
 				}
 				else {
 					console.log("operacion exitosamente exitosa");
-					console.log(respuesta);
+					console.log(respuesta["titulo"]);
+
 				}
 			}
 		});
