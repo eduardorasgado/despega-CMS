@@ -113,7 +113,7 @@ $('#columnasSlide').on("drop", function(e)
 					$(".alerta2").remove();
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Tu imagen se ha subido con exito</div>");		
 					$("#columnasSlide").append("<li id='"+respuesta['id']+"' class='bloqueSlide'><span class='fa fa-times eliminarAjaxSlide' ruta='"+rutaRaw+"'></span><img src='"+ruta+"' class='handleImg'></li>");
-					$("#ordenarTextSlide").append("<li id='item"+respuesta['id']+"'><span class='fa fa-pencil' style='background:blue'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");					
+					$("#ordenarTextSlide").append("<li id='item"+respuesta['id']+"'><span class='fa fa-pencil editarSlide' style='background:blue'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");					
 					//$("#slideCarousel").append("<li><img src='"+ruta+"'><div class='slideCaption'><h3>"+titulo+"</h3><p>"+descripcion+"</p></div></li>");
 
 					//alto del cotenedor punteado reestablecido
@@ -154,7 +154,7 @@ $(".eliminarSlide").click(function(){
 
 	//antes de todo, confimacion de seguridad
 	confirmacion = window.confirm("Estas a punto de borrar tu elemento");
-
+	
 	//en caso de aceptacion de eliminado
 	if (confirmacion) {
 		//borrando el item
@@ -236,3 +236,18 @@ function deleteLogic(idSlide, rutaSlide){
 }
 
 /*=====  End of DELETE AJAX COMPONENT FUNCTION  ======*/
+
+
+/*=====================================================
+=            EDITAR ITEM SLIDE ACTUAL PAGE            =
+=====================================================*/
+
+$(".editarSlide").click(function(){
+	idSlide = $(this).parent().attr("id");
+
+	//reemplazar la caja editora off por la editora on
+	$(this).parent().html("<img src='ff' class='img-thumbnail'><input type='text' class='form-control' placeholder='Título'><textarea row='5' class='form-control' placeholder='Descripción'></textarea><button class='btn btn-info pull-right' style='margin:10px'>Guardar</button>");
+
+});
+
+/*=====  End of EDITAR ITEM SLIDE ACTUAL PAGE  ======*/
