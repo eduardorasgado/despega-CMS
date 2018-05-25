@@ -146,6 +146,7 @@ $('#columnasSlide').on("dragleave", function(e)
 ===========================================*/
 
 $(".eliminarSlide").click(function(){
+	$(".alerta2").remove();
 	//id que sustraemos para eliminar la ruta de la db
 	idSlide = $(this).parent().attr("id");
 	//ruta que ssutraemos para eliminar el archivo del server
@@ -180,6 +181,7 @@ $(".eliminarSlide").click(function(){
 //como lo es el caso de los elementos ajax, para ello acudimos a esta funcion
 
 $("#columnasSlide").on("click",".eliminarAjaxSlide", function(){
+	$(".alerta2").remove();
   	idSlide = $(this).parent().attr("id");
   	rutaSlide = $(this).attr("ruta");
 	confirmacion = window.confirm("Estas a punto de borrar tu elemento");
