@@ -98,7 +98,7 @@ class slideModels
 	//entregar el slide que se actualizó
 	public function selectUpdatedSlide($datos, $tabla)
 	{
-		$query = "SELECT titulo, descripcion FROM $tabla WHERE id=:id";
+		$query = "SELECT id, ruta, titulo, descripcion FROM $tabla WHERE id=:id";
 
 		$stmt = ConexionModels::conexionModel()->prepare($query);
 

@@ -244,6 +244,8 @@ function deleteLogic(idSlide, rutaSlide){
 
 $(".editarSlide").click(function(){
 	idSlide = $(this).parent().attr("id");
+	//cortar el idSlide que viene con formato item+id
+	idSlide = idSlide.slice(4);
 	//de span ir al padre y de ahi buscar un hijo con tag img y buscar atributo src
 	rutaSlide = $(this).parent().children("img").attr("src");
 	rutaTitulo = $(this).parent().children("h1").html();
@@ -251,15 +253,13 @@ $(".editarSlide").click(function(){
 	
 	//reemplazar la caja editora off por la editora on
 	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input id='enviarTitulo' type='text' class='form-control' placeholder='Título' value='"+rutaTitulo+"'><textarea id='enviarDescripcion' row='5' class='form-control' placeholder='Descripción'>"+rutaDescripcion+"</textarea><button class='btn btn-info pull-right' id='guardaritem"+idSlide+"' style='margin:10px'>Guardar</button>");
-	console.log("here");
+
 	$("#guardaritem"+idSlide).click(function(){
-		//cortar el idSlide que viene con formato item+id
-		enviarId = idSlide.slice(4);
 		//capturando el value de la etiqueta input con id enviarTitulo
 		enviarTitulo = $("#enviarTitulo").val();
 		enviarDescripcion = $("#enviarDescripcion").val();
-		console.log(enviarId, enviarTitulo, enviarDescripcion);
-		actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion);
+	
+		actualizarSlideLogic(idSlide, enviarTitulo, enviarDescripcion);
 	});
 
 });
@@ -272,6 +272,8 @@ $(".editarSlide").click(function(){
 
 $("#ordenarTextSlide").on("click",".editarSlide", function(){
 	idSlide = $(this).parent().attr("id");
+	//cortar el idSlide que viene con formato item+id
+	idSlide = idSlide.slice(4);
 	rutaSlide = $(this).parent().children("img").attr("src");
 	//llamar hijos h1 y p y lo que esté en su html
 	rutaTitulo = $(this).parent().children("h1").html();
@@ -282,13 +284,11 @@ $("#ordenarTextSlide").on("click",".editarSlide", function(){
 	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input id='enviarTitulo' type='text' class='form-control' placeholder='Título' value='"+rutaTitulo+"'><textarea id='enviarDescripcion' row='5' class='form-control' placeholder='Descripción'>"+rutaDescripcion+"</textarea><button class='btn btn-info pull-right' id='guardaritem"+idSlide+"' style='margin:10px'>Guardar</button>");
 	
 	$("#guardaritem"+idSlide).click(function(){
-		//cortar el idSlide que viene con formato item+id
-		enviarId = idSlide.slice(4);
 		//capturando el value de la etiqueta input con id enviarTitulo
 		enviarTitulo = $("#enviarTitulo").val();
 		enviarDescripcion = $("#enviarDescripcion").val();
 
-		actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion);
+		actualizarSlideLogic(idSlide, enviarTitulo, enviarDescripcion);
 	});
 });
 
@@ -305,7 +305,7 @@ function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
 	actualizarSlide.append("enviarId", enviarId);
 	actualizarSlide.append("enviarTitulo", enviarTitulo);
 	actualizarSlide.append("enviarDescripcion", enviarDescripcion);
-	console.log("AJAX");
+
 	$.ajax({
 			url: 'views/ajax/gestorSlide.php',
 			method: 'POST',
@@ -317,11 +317,16 @@ function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
 			success: function(respuesta){
 				if (respuesta == false) {
 					console.log("operación fallida");
+					window.alert("Oops! Algo salió mal! :(");
 				}
 				else {
-					console.log("operacion exitosamente exitosa");
-					console.log(respuesta["titulo"]);
-
+					
+					ruta = respuesta["ruta"].slice(6);
+					titulo = respuesta["titulo"];
+					descripcion = respuesta["descripcion"];
+					
+					//Volviendo a reestablecer el elemento editable off
+					$("#guardaritem"+respuesta["id"]).parent().html("<span class='fa fa-pencil editarSlide' style='background:blue'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");
 				}
 			}
 		});

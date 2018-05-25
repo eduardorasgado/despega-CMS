@@ -133,7 +133,13 @@ class slideControllers
 		
 		if ($response) {
 			$updated = slideModels::selectUpdatedSlide($datos, "slide");
-			return json_encode($updated);
+			$updatedArray = [
+				"id" => $updated["id"],
+				"ruta" => $updated["ruta"],
+				"titulo" => $updated["titulo"],
+				"descripcion" => $updated["descripcion"]
+			];
+			return json_encode($updatedArray);
 		}
 		return false;
 	}
