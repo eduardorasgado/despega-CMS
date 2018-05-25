@@ -304,6 +304,24 @@ function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
 	actualizarSlide.append("enviarId", enviarId);
 	actualizarSlide.append("enviarTitulo", enviarTitulo);
 	actualizarSlide.append("enviarDescripcion", enviarDescripcion);
+
+	$.ajax({
+			url: 'views/ajax/gestorSlide.php',
+			method: 'POST',
+			data: actualizarSlide,
+			cache: false,
+			contentType: false,
+			processData: false,
+			dataType:"json",
+			success: function(respuesta){
+				if (respuesta == false) {
+					console.log("operación fallida");
+				}
+				else {
+					console.log("operacion exitosa");
+				}
+			}
+		});
 }
 
 /*=====  End of FUNCTION COMPONENT PARA ACTUALIZAR SLIDE DESPUES DE EDITADO  ======*/
