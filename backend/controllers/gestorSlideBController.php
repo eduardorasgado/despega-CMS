@@ -132,7 +132,8 @@ class slideControllers
 		$response = slideModels::updateSlideModel($datos, "slide");
 		
 		if ($response) {
-			return true;
+			$updated = slideModels::selectUpdatedSlide($datos, "slide");
+			return $update;
 		}
 		return false;
 	}
