@@ -37,6 +37,25 @@ class Ajax
 		$respuesta = slideControllers::deleteSlideController($datos);
 		echo $respuesta;
 	}
+
+	//Actualizar Item Slide
+	public $enviarId;
+	public $enviarTitulo;
+	public $enviarDescripcion;
+
+	public function actualizarSlideAjax()
+	{
+		$datos = [
+			"enviarId" => $this->enviarId,
+			"enviarTitulo" => $this->enviarTitulo,
+			"enviarDescripcion" => $this->enviarDescripcion,
+		];
+
+		$respuesta = slideControllers::updateSlideController($datos);
+		echo $respuesta;
+	}
+
+
 }
 
 #OBJETOS -------------------------------------------
@@ -57,4 +76,15 @@ if (isset($_POST["idSlide"]))
 	$delete->idSlide = $_POST["idSlide"];
 	$delete->rutaSlide = $_POST["rutaSlide"];
 	$delete->eliminarSlideAjax();
+}
+
+
+if (isset($_POST["enviarId"])) 
+{
+	#instancia para el editor
+	$editSlide = new Ajax();
+	$editSlide->enviarId = $_POST["enviarId"];
+	$editSlide->enviarTitulo = $_POST["enviarTitulo"];
+	$editSlide->$enviarDescripcion = $_POST["enviarDescripcion"]
+	$editSlide->actualizarSlideAjax();
 }

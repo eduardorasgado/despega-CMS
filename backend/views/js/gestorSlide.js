@@ -299,6 +299,7 @@ $("#ordenarTextSlide").on("click",".editarSlide", function(){
 ===================================================================================*/
 
 function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
+	
 	var actualizarSlide = new FormData();
 
 	actualizarSlide.append("enviarId", enviarId);
