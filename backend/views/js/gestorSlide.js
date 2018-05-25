@@ -244,10 +244,12 @@ function deleteLogic(idSlide, rutaSlide){
 
 $(".editarSlide").click(function(){
 	idSlide = $(this).parent().attr("id");
-	//ir al padre y de ahi buscar un hijo con tag img y buscar atributo src
+	//de span ir al padre y de ahi buscar un hijo con tag img y buscar atributo src
 	rutaSlide = $(this).parent().children("img").attr("src");
+	rutaTitulo = $(this).parent().children("h1").html();
+	rutaDescripcion = $(this).parent().children("p").html();
 	//reemplazar la caja editora off por la editora on
-	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input type='text' class='form-control' placeholder='Título'><textarea row='5' class='form-control' placeholder='Descripción'></textarea><button class='btn btn-info pull-right' style='margin:10px'>Guardar</button>");
+	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input type='text' class='form-control' placeholder='Título' value='"+rutaTitulo+"'><textarea row='5' class='form-control' placeholder='Descripción'>"+rutaDescripcion+"</textarea><button class='btn btn-info pull-right' style='margin:10px'>Guardar</button>");
 
 });
 
@@ -260,8 +262,12 @@ $(".editarSlide").click(function(){
 $("#ordenarTextSlide").on("click",".editarSlide", function(){
 	idSlide = $(this).parent().attr("id");
 	rutaSlide = $(this).parent().children("img").attr("src");
+	//llamar hijos h1 y p y lo que esté en su html
+	rutaTitulo = $(this).parent().children("h1").html();
+	rutaDescripcion = $(this).parent().children("p").html();
+
 	//reemplazar la caja editora off por la editora on
-	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input type='text' class='form-control' placeholder='Título'><textarea row='5' class='form-control' placeholder='Descripción'></textarea><button class='btn btn-info pull-right' style='margin:10px'>Guardar</button>");
+	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input type='text' class='form-control' placeholder='Título' value='"+rutaTitulo+"'><textarea row='5' class='form-control' placeholder='Descripción'>"+rutaDescripcion+"</textarea><button class='btn btn-info pull-right' style='margin:10px'>Guardar</button>");
 
 });
 
