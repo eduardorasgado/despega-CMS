@@ -327,6 +327,15 @@ function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
 					
 					//Volviendo a reestablecer el elemento editable off
 					$("#guardaritem"+respuesta["id"]).parent().html("<span class='fa fa-pencil editarSlide' style='background:blue'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");
+
+					swal({
+					  position: 'top-end',
+					  type: 'success',
+					  title: 'Cambios guardados',
+					  showConfirmButton: false,
+					  timer: 1500
+					})
+					//window.location ="slide";
 				}
 			}
 		});
