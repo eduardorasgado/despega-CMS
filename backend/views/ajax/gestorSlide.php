@@ -85,6 +85,6 @@ if (isset($_POST["enviarId"]))
 	$editSlide = new Ajax();
 	$editSlide->enviarId = $_POST["enviarId"];
 	$editSlide->enviarTitulo = $_POST["enviarTitulo"];
-	$editSlide->$enviarDescripcion = $_POST["enviarDescripcion"]
+	$editSlide->enviarDescripcion = $_POST["enviarDescripcion"];
 	$editSlide->actualizarSlideAjax();
 }

@@ -74,8 +74,22 @@ class slideModels
 	}
 
 	//actualizar slide especifico desde la DB
-	public function updateSlideModel()
+	public function updateSlideModel($datos, $tabla)
 	{
-		return true;
+		$query = "UPDATE $tabla SET titulo=:titulo, descripcion=:descripcion WHERE id=:id";
+
+		$stmt = ConexionModels::conexionModel()->prepare($query);
+
+		$stmt->bindParam(":titulo", $datos["enviarTitulo"],PDO::PARAM_STR);
+		$stmt->bindParam(":descripcion", $datos["enviarDescripcion"],PDO::PARAM_STR);
+		$stmt->bindParam(":id", $datos["enviarId"],PDO::PARAM_INT);
+
+		if ($stmt->execute()) 
+		{
+			$stmt = null;
+			return true;
+		}
+		$stmt = null;
+		return false;
 	}
 }

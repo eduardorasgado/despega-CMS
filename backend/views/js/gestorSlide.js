@@ -251,14 +251,14 @@ $(".editarSlide").click(function(){
 	
 	//reemplazar la caja editora off por la editora on
 	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input id='enviarTitulo' type='text' class='form-control' placeholder='Título' value='"+rutaTitulo+"'><textarea id='enviarDescripcion' row='5' class='form-control' placeholder='Descripción'>"+rutaDescripcion+"</textarea><button class='btn btn-info pull-right' id='guardaritem"+idSlide+"' style='margin:10px'>Guardar</button>");
-	
+	console.log("here");
 	$("#guardaritem"+idSlide).click(function(){
 		//cortar el idSlide que viene con formato item+id
 		enviarId = idSlide.slice(4);
 		//capturando el value de la etiqueta input con id enviarTitulo
 		enviarTitulo = $("#enviarTitulo").val();
 		enviarDescripcion = $("#enviarDescripcion").val();
-
+		console.log(enviarId);
 		actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion);
 	});
 
@@ -313,13 +313,13 @@ function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
 			cache: false,
 			contentType: false,
 			processData: false,
-			dataType:"json",
+			//dataType:"json",
 			success: function(respuesta){
 				if (respuesta == false) {
 					console.log("operación fallida");
 				}
 				else {
-					console.log("operacion exitosa");
+					console.log("operacion exitosamente exitosa");
 				}
 			}
 		});

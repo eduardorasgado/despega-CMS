@@ -124,12 +124,6 @@ class slideControllers
 		return false;
 	}
 
-	//actualizar item del slide view, receptor ajax
-	public function updateSlideController()
-	{
-
-	}
-
 
 	#UTILIDADES ----------------------------------------
 
