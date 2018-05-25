@@ -113,7 +113,7 @@ $('#columnasSlide').on("drop", function(e)
 					$(".alerta2").remove();
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Tu imagen se ha subido con exito</div>");		
 					$("#columnasSlide").append("<li id='"+respuesta['id']+"' class='bloqueSlide'><span class='fa fa-times eliminarAjaxSlide' ruta='"+rutaRaw+"'></span><img src='"+ruta+"' class='handleImg'></li>");
-					$("#ordenarTextSlide").append("<li id='item"+respuesta['id']+"'><span class='fa fa-pencil editarSlide' style='background:blue'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");					
+					$("#ordenarTextSlide").append("<li id='item"+respuesta['id']+"'><span class='fa fa-pencil editarSlide' style='background:blue' rutaSliced='"+ruta+"'></span><img src='"+ruta+"' style='float:left; margin-bottom:10px' width='80%'><h1>"+titulo+"</h1><p>"+descripcion+"</p></li>");					
 					//$("#slideCarousel").append("<li><img src='"+ruta+"'><div class='slideCaption'><h3>"+titulo+"</h3><p>"+descripcion+"</p></div></li>");
 
 					//alto del cotenedor punteado reestablecido
@@ -244,10 +244,24 @@ function deleteLogic(idSlide, rutaSlide){
 
 $(".editarSlide").click(function(){
 	idSlide = $(this).parent().attr("id");
-
+	rutaSlide = $(this).attr("rutaSliced");
 	//reemplazar la caja editora off por la editora on
-	$(this).parent().html("<img src='ff' class='img-thumbnail'><input type='text' class='form-control' placeholder='Título'><textarea row='5' class='form-control' placeholder='Descripción'></textarea><button class='btn btn-info pull-right' style='margin:10px'>Guardar</button>");
+	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input type='text' class='form-control' placeholder='Título'><textarea row='5' class='form-control' placeholder='Descripción'></textarea><button class='btn btn-info pull-right' style='margin:10px'>Guardar</button>");
 
 });
 
 /*=====  End of EDITAR ITEM SLIDE ACTUAL PAGE  ======*/
+
+/*======================================================
+=            EDITAR ITEM SLIDE AJAX ELEMENT            =
+======================================================*/
+
+$("#ordenarTextSlide").on("click",".editarSlide", function(){
+	idSlide = $(this).parent().attr("id");
+	rutaSlide = $(this).attr("rutaSliced");
+	//reemplazar la caja editora off por la editora on
+	$(this).parent().html("<img src='"+rutaSlide+"' class='img-thumbnail'><input type='text' class='form-control' placeholder='Título'><textarea row='5' class='form-control' placeholder='Descripción'></textarea><button class='btn btn-info pull-right' style='margin:10px'>Guardar</button>");
+
+});
+
+/*=====  End of EDITAR ITEM SLIDE AJAX ELEMENT  ======*/
