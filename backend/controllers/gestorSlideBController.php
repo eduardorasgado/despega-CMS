@@ -124,6 +124,19 @@ class slideControllers
 		return false;
 	}
 
+	//actualizar item del slide view, receptor ajax
+	public function updateSlideController($datos)
+	{
+		
+		//guardando los datos actualizados
+		$response = slideModels::updateSlideModel($datos, "slide");
+		
+		if ($response) {
+			return true;
+		}
+		return false;
+	}
+
 
 	#UTILIDADES ----------------------------------------
 

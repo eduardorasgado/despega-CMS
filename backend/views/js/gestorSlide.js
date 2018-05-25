@@ -258,7 +258,7 @@ $(".editarSlide").click(function(){
 		//capturando el value de la etiqueta input con id enviarTitulo
 		enviarTitulo = $("#enviarTitulo").val();
 		enviarDescripcion = $("#enviarDescripcion").val();
-		console.log(enviarId);
+		console.log(enviarId, enviarTitulo, enviarDescripcion);
 		actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion);
 	});
 
@@ -305,7 +305,7 @@ function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
 	actualizarSlide.append("enviarId", enviarId);
 	actualizarSlide.append("enviarTitulo", enviarTitulo);
 	actualizarSlide.append("enviarDescripcion", enviarDescripcion);
-
+	console.log("AJAX");
 	$.ajax({
 			url: 'views/ajax/gestorSlide.php',
 			method: 'POST',
@@ -320,6 +320,7 @@ function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
 				}
 				else {
 					console.log("operacion exitosamente exitosa");
+					console.log(respuesta);
 				}
 			}
 		});
