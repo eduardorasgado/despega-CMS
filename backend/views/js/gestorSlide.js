@@ -299,7 +299,11 @@ $("#ordenarTextSlide").on("click",".editarSlide", function(){
 ===================================================================================*/
 
 function actualizarSlideLogic(enviarId, enviarTitulo, enviarDescripcion){
-	return true;
+	var actualizarSlide = new FormData();
+
+	actualizarSlide.append("enviarId", enviarId);
+	actualizarSlide.append("enviarTitulo", enviarTitulo);
+	actualizarSlide.append("enviarDescripcion", enviarDescripcion);
 }
 
 /*=====  End of FUNCTION COMPONENT PARA ACTUALIZAR SLIDE DESPUES DE EDITADO  ======*/
