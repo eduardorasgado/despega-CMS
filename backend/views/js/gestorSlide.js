@@ -380,12 +380,40 @@ $(".updateSlider").click(function(){
 =            ORDENAR SLIDER            =
 ======================================*/
 
+var almacenarOrdenId = [];
+
 $("#ordenarSlide").click(function(){
 	$("#ordenarSlide").hide();
 	$("#guardarSlide").show();
+
+	//poner cursos de mover
+	$("#columnasSlide").css({"cursor":"move"});
+	//Esconder la x
+	$("#columnasSlide span").hide();
+	$("#columnasSlide").sortable({
+		//para volver a su sitio en caso de no moverlo en ningun lado
+		revert:true,
+		//que se conecte con la clase bloqueSLide de li
+		connectWith:".bloqueSlide",
+		//para que se pueda agarrar desde las imagenes
+		handle: ".handleImg",
+		stop: function(event){
+			//de cero hasta el numero total de imagenes
+			for(var i = 0; i < $("#columnasSlide li").length; i++){
+				almacenarOrdenId[i] = event.target.children[i].id;
+				console.log("almacenarOrdenId", almacenarOrdenId[i]);
+			}
+			
+		}
+
+	}); //end sortable
 });
 $("#guardarSlide").click(function(){
 	$("#guardarSlide").hide();
 	$("#ordenarSlide").show();
+
+	$("#columnasSlide").css({"cursor":"default"});
+	$("#columnasSlide span").show();
+	$("#columnasSlide").sortable();
 });
 /*=====  End of ORDENAR SLIDER  ======*/
