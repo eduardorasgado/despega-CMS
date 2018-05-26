@@ -375,3 +375,17 @@ $(".updateSlider").click(function(){
 });
 
 /*=====  End of UPDATE SLIDER ON CLICK ACTION PARA EL BOTON  ======*/
+
+/*======================================
+=            ORDENAR SLIDER            =
+======================================*/
+
+$("#ordenarSlide").click(function(){
+	$("#ordenarSlide").hide();
+	$("#guardarSlide").show();
+});
+$("#guardarSlide").click(function(){
+	$("#guardarSlide").hide();
+	$("#ordenarSlide").show();
+});
+/*=====  End of ORDENAR SLIDER  ======*/
