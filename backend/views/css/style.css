@@ -76,6 +76,15 @@ nav#botonera ul li a span{
 	float: left;
 }
 
+.look-site {
+	margin-left: 1vw;
+}
+
+.look-site button {
+	padding-left: 4vw;
+	padding-right: 4vw;
+}
+
 /*Cabezote*/
 
 #cabezote{

@@ -41,6 +41,6 @@
 
 	</nav>
 
-	<a href=".././" target="_blank"><button class="btn btn-primary">Ver sitio <span class="glyphicon glyphicon-eye-open"></span></button></a>
+	<a class="look-site" href=".././" target="_blank"><button class="btn btn-primary">Ver sitio <span class="glyphicon glyphicon-eye-open"></span></button></a>
 
 </div>
