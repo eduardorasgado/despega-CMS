@@ -16,6 +16,7 @@ require_once("controllers/enlacesBController.php");
 require_once("controllers/ingresoBController.php");
 require_once("controllers/gestorSlideBController.php");
 
+date_default_timezone_set('America/Monterrey');
 
 session_start();
 

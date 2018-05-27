@@ -24,8 +24,8 @@
 	<div id="time" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 		
 
-		<div class="text-center">Lunes, 12 de Septiembre de 2016</div>
-		<div class="text-center">12:56:00 pm</div>
+		<div class="text-center"><?php echo date('l jS \of F Y'); ?></div>
+		<div class="text-center"><?php echo date('h:i:s A'); ?></div>
 
 	</div>
 
@@ -36,7 +36,7 @@
 		<p id="member"><?php echo $_SESSION["user"]; ?><span class="fa fa-chevron-down"></span>
 			<br>
 			<ol id="admin">
-				<li><a href="perfil.html"><span class="fa fa-user"></span>Editar Perfil</a></li>
+				<li><a href="perfil"><span class="fa fa-user"></span>Editar Perfil</a></li>
 				<li><a href=""><span class="fa fa-file-text"></span>Términos y Condiciones</a></li>
 				<li><a href="salir"><span class="fa fa-times"></span>Salir</a></li>
 			</ol>
