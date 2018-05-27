@@ -20,11 +20,11 @@ ARTÍCULOS ADMINISTRABLE
 
 <div id="seccionArticulos" class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
 	
-	<button class="btn btn-info btn-lg">Agregar Artículo</button>
+	<button id="btnAgregarArticulo" class="btn btn-info btn-lg">Agregar Artículo</button>
 
 	<!--==== AGREGAR ARTÍCULO  ====-->
 
-	<div id="agregarArtículo">
+	<div id="agregarArtículo" style="display: none">
 		
 		<input type="text" placeholder="Título del Artículo" class="form-control">
 
