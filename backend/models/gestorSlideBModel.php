@@ -115,6 +115,18 @@ class slideModels
 	//orden de los items
 	public function orderSlideAjaxModel($datos, $tabla)
 	{
-		return true;
+		$query = "UPDATE $tabla SET orden=:orden WHERE id=:id";
+		$stmt = ConexionModels::conexionModel()->prepare($query);
+
+		$stmt->bindParam(":id",$datos["almacenarOrdenId"],PDO::PARAM_INT);
+		$stmt->bindParam(":orden",$datos["ordenItem"],PDO::PARAM_INT);
+
+		if ($stmt->execute()) 
+		{
+			$stmt = null;
+			return true;
+		}
+		$stmt = null;
+		return false;
 	}
 }

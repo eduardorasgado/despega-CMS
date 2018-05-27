@@ -422,13 +422,14 @@ $("#guardarSlide").click(function(){
 	$("#columnasSlide span").show();
 	$("#columnasSlide").sortable();
 
-	for (var i = 0; i < $("#columnasSlide").length; i++) {
+	//iterar para guardar cada uno de los ordenes
+	for (var i = 0; i < $("#columnasSlide li").length; i++) {
 		$("#columnasSlide")[i];
 		var guardarSlideOrden = new FormData();
 
 		guardarSlideOrden.append("almacenarOrdenId", almacenarOrdenId[i]);
 		guardarSlideOrden.append("ordenItem", ordenItem[i]);
-
+		
 		$.ajax({
 			url: 'views/ajax/gestorSlide.php',
 				method: 'POST',
@@ -438,17 +439,17 @@ $("#guardarSlide").click(function(){
 				processData: false,
 				dataType:"json",
 				success: function(respuesta){
-					console.log("Respuesta: "+respuesta);
+					$(".alerta2").remove();
 					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Nuevo orden guardado!</div>");
 					window.setTimeout(function(){$(".alerta2").remove();},2000);
 				},
 				error: function (xhr, ajaxOptions, thrownError) {
 			        alert(xhr.status);
-			        alert(thrownError);
-			        
+			        alert(thrownError);		        
 			    }
 
 		});
+
 	}
 });
 /*=====  End of ORDENAR SLIDER  ======*/
