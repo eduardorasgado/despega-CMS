@@ -381,8 +381,8 @@ $(".updateSlider").click(function(){
 =            ORDENAR SLIDER            =
 ======================================*/
 
-var almacenarOrdenId = [];
-var ordenItem = [];
+var almacenarOrdenId = new Array();
+var ordenItem = new Array();
 
 $("#ordenarSlide").click(function(){
 	$("#ordenarSlide").hide();
@@ -402,13 +402,14 @@ $("#ordenarSlide").click(function(){
 		stop: function(event){
 			//de cero hasta el numero total de imagenes
 			for(var i = 0; i < $("#columnasSlide li").length; i++){
+				//guardar el orden de las imagenes en dos arrays
 				almacenarOrdenId[i] = parseInt(event.target.children[i].id);
 				ordenItem[i] = i+1;
-				console.log("almacenarOrdenId", almacenarOrdenId[i]);
-				console.log("posicion: ",ordenItem[i])
+				//console.log("almacenarOrdenId", almacenarOrdenId[i]);
+				//console.log("posicion: ",ordenItem[i])
 			}
-			console.log(almacenarOrdenId);
-			console.log(ordenItem);
+			//console.log(almacenarOrdenId);
+			//console.log(ordenItem);
 		}
 
 	}); //end sortable
@@ -421,24 +422,33 @@ $("#guardarSlide").click(function(){
 	$("#columnasSlide span").show();
 	$("#columnasSlide").sortable();
 
-	var guardarSlideOrden = new FormData();
+	for (var i = 0; i < $("#columnasSlide").length; i++) {
+		$("#columnasSlide")[i];
+		var guardarSlideOrden = new FormData();
 
-	guardarSlideOrden.append("almacenarOrdenId", almacenarOrdenId);
-	guardarSlideOrden.append("ordenItem", ordenItem);
+		guardarSlideOrden.append("almacenarOrdenId", almacenarOrdenId[i]);
+		guardarSlideOrden.append("ordenItem", ordenItem[i]);
 
-	$.ajax({
-		url: 'views/ajax/gestorSlide.php',
-			method: 'POST',
-			data: guardarSlideOrden,
-			cache: false,
-			contentType: false,
-			processData: false,
-			dataType:"json",
-			success: function(respuesta){
-				console.log(respuesta);
-				$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Nuevo orden guardado!</div>");
-				window.setTimeout(function(){$(".alerta2").remove();},2000);
-			}
-	});
+		$.ajax({
+			url: 'views/ajax/gestorSlide.php',
+				method: 'POST',
+				data: guardarSlideOrden,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType:"json",
+				success: function(respuesta){
+					console.log("Respuesta: "+respuesta);
+					$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Nuevo orden guardado!</div>");
+					window.setTimeout(function(){$(".alerta2").remove();},2000);
+				},
+				error: function (xhr, ajaxOptions, thrownError) {
+			        alert(xhr.status);
+			        alert(thrownError);
+			        
+			    }
+
+		});
+	}
 });
 /*=====  End of ORDENAR SLIDER  ======*/

@@ -147,9 +147,11 @@ class slideControllers
 	//actualizar el orden de los items
 	public function orderSlideAjaxController($datos)
 	{
-		$dataLength = count($datos);
-		slideModels::orderSlideAjaxModel($datos, "slide");
-		return json_encode($datos);
+		$response = slideModels::orderSlideAjaxModel($datos, "slide");
+		if ($response) {
+			return $response;
+		}
+		return false;
 	}
 
 
