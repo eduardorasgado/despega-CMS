@@ -55,8 +55,8 @@ class Ajax
 		echo $respuesta;
 	}
 
-	public $almacenarOrdenId;
-	public $ordenItem;
+	public $almacenarOrdenId = [];
+	public $ordenItem = [];
 
 	public function orderSlideAjax()
 	{

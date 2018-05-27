@@ -433,8 +433,9 @@ $("#guardarSlide").click(function(){
 			cache: false,
 			contentType: false,
 			processData: false,
-			//dataType:"json",
+			dataType:"json",
 			success: function(respuesta){
+				console.log(respuesta);
 				$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Nuevo orden guardado!</div>");
 				window.setTimeout(function(){$(".alerta2").remove();},2000);
 			}
