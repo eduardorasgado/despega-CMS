@@ -3,7 +3,9 @@
 ========================================*/
 
 $("#btnAgregarArticulo").click(function(){
-	$("#agregarArtículo").css({"display":"block"})
+	//toggle aparece o desaparece elementos
+	$("#agregarArtículo").toggle(100);
+	//$("#agregarArtículo").css({"display":"block"})
 });
 
 /*=====  End of AGREGAR ARTICULO  ======*/
