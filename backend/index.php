@@ -3,9 +3,10 @@
 /*=========================================
 =            INDEX.PHP BACKEND            =
 =========================================*/
-//MODELOS
+//CONEXION DB
 require_once("models/conexionBModel.php");
 
+//MODELOS
 require_once("models/enlacesBModel.php");
 require_once("models/ingresoBModel.php");
 require_once("models/gestorSlideBModel.php");
