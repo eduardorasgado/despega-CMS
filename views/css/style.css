@@ -537,3 +537,41 @@ PLUGIN SCROLL UP
 }
 
 /*=====  Fin de PLUGIN SCROLL UP  ======*/
+
+/*=============================================
+FOOTER TRADE
+=============================================*/
+footer .footer-1 {
+	display: block;
+	margin-top: 10px; 
+	/*height: 500px;*/
+}
+
+footer .footer-2{
+	background: #262626FF;
+}
+footer .company-foot {
+	width: 600px;
+	display: block;
+	margin: auto;
+	color: white;
+}
+
+footer .company-foot p{
+	font-size: 2rem;
+	font-family: 'lato';
+	font-weight: 800;
+	margin: 10px;
+}
+
+@media screen and (max-width: 700px) {
+	footer .company-foot {
+		width: 300px;
+		
+	}
+
+	footer .company-foot p{
+		font-size: 1em;
+		text-align: center;
+	}
+}
