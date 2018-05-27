@@ -14,10 +14,22 @@
 				 
 		       		<li>
 		           	<img src="<?php echo "backend/".substr($value["ruta"], 6); ?>">
-		           	<div class="slideCaption">
-		           		<h3><?php echo $value["titulo"]; ?></h3>
-				   		<p><?php echo $value["descripcion"]; ?></p>
-		           	</div>
+		           	<?php if (!empty($value["titulo"]) && !empty($value["descripcion"])): ?>
+		           		<div class="slideCaption">
+			           		<h3><?php echo $value["titulo"]; ?></h3>
+					   		<p><?php echo $value["descripcion"]; ?></p>
+			           	</div>
+
+			        <?php elseif(!empty($value["titulo"]) || !empty($value["descripcion"])): ?>
+			        	<div class="slideCaption">
+			           		<h3><?php echo $value["titulo"]; ?></h3>
+					   		<p><?php echo $value["descripcion"]; ?></p>
+			           	</div>
+			           	<br>
+			        <?php else: ?>
+			        	<br><br><br><br><br><br>
+		           	<?php endif ?>
+
 		           </li>
 
 	       		<?php endforeach ?>
