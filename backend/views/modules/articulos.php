@@ -50,7 +50,7 @@ ARTÍCULOS ADMINISTRABLE
 
 	<ul id="editarArticulo">
 
-		<li>
+		<!--li>
 			<span>
 			<i class="fa fa-times btn btn-danger"></i>
 			<i class="fa fa-pencil btn btn-primary"></i>	
@@ -81,7 +81,7 @@ ARTÍCULOS ADMINISTRABLE
 			
 			<hr>
 
-		</li>
+		</li-->
 
 	</ul>
 
@@ -95,7 +95,7 @@ ARTÍCULOS ADMINISTRABLE
 ARTÍCULO MODAL         
 ======================================-->
 
-<div id="articulo1" class="modal fade">
+<!--div id="articulo1" class="modal fade">
 
 		<div class="modal-dialog modal-content">
 
@@ -121,6 +121,6 @@ ARTÍCULO MODAL
 
 		</div>
 
-</div>
+</div-->
 
 <!--====  Fin de ARTICULO MODAL ====-->
