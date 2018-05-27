@@ -551,14 +551,14 @@ footer .footer-2{
 	background: #262626FF;
 }
 footer .company-foot {
-	width: 600px;
+	width: 500px;
 	display: block;
 	margin: auto;
 	color: white;
 }
 
 footer .company-foot p{
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-family: 'lato';
 	font-weight: 800;
 	margin: 10px;
