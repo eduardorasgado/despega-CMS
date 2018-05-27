@@ -46,6 +46,7 @@ $('#columnasSlide').on("drop", function(e)
 	//almacenando el archivo en una variable
 	var archivo = e.originalEvent.dataTransfer.files;
 	var image = archivo[0];
+	if (typeof(image) === 'undefined') {return false}
 
 	var imageSize = image.size;
 	var imagetype = image.type;
@@ -381,6 +382,7 @@ $(".updateSlider").click(function(){
 ======================================*/
 
 var almacenarOrdenId = [];
+var ordenItem = [];
 
 $("#ordenarSlide").click(function(){
 	$("#ordenarSlide").hide();
@@ -400,10 +402,13 @@ $("#ordenarSlide").click(function(){
 		stop: function(event){
 			//de cero hasta el numero total de imagenes
 			for(var i = 0; i < $("#columnasSlide li").length; i++){
-				almacenarOrdenId[i] = event.target.children[i].id;
+				almacenarOrdenId[i] = parseInt(event.target.children[i].id);
+				ordenItem[i] = i+1;
 				console.log("almacenarOrdenId", almacenarOrdenId[i]);
+				console.log("posicion: ",ordenItem[i])
 			}
-			
+			console.log(almacenarOrdenId);
+			console.log(ordenItem);
 		}
 
 	}); //end sortable
@@ -415,5 +420,24 @@ $("#guardarSlide").click(function(){
 	$("#columnasSlide").css({"cursor":"default"});
 	$("#columnasSlide span").show();
 	$("#columnasSlide").sortable();
+
+	var guardarSlideOrden = new FormData();
+
+	guardarSlideOrden.append("almacenarOrdenId", almacenarOrdenId);
+	guardarSlideOrden.append("ordenItem", ordenItem);
+
+	$.ajax({
+		url: 'views/ajax/gestorSlide.php',
+			method: 'POST',
+			data: guardarSlideOrden,
+			cache: false,
+			contentType: false,
+			processData: false,
+			//dataType:"json",
+			success: function(respuesta){
+				$("#columnasSlide").before("<div class='alert alert-success alerta2 text-center'> Nuevo orden guardado!</div>");
+				window.setTimeout(function(){$(".alerta2").remove();},2000);
+			}
+	});
 });
 /*=====  End of ORDENAR SLIDER  ======*/

@@ -55,6 +55,20 @@ class Ajax
 		echo $respuesta;
 	}
 
+	public $almacenarOrdenId;
+	public $ordenItem;
+
+	public function orderSlideAjax()
+	{
+		$datos = [
+			"almacenarOrdenId" => $this->almacenarOrdenId,
+			"ordenItem" => $this->ordenItem,
+		];
+
+		$respuesta = slideControllers::orderSlideAjaxController($datos);
+		echo true;
+	}
+
 
 }
 
@@ -87,4 +101,11 @@ if (isset($_POST["enviarId"]))
 	$editSlide->enviarTitulo = $_POST["enviarTitulo"];
 	$editSlide->enviarDescripcion = $_POST["enviarDescripcion"];
 	$editSlide->actualizarSlideAjax();
+}
+
+if (isset($_POST["almacenarOrdenId"])) {
+	$ordered = new Ajax();
+	$ordered->almacenarOrdenId = $_POST["almacenarOrdenId"];
+	$ordered->ordenItem = $_POST["ordenItem"];
+	$ordered->orderSlideAjax();
 }
