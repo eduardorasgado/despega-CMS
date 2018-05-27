@@ -12,10 +12,14 @@
 			 <?php if(!empty($slides)): ?>
 				 <?php foreach($slides as $key => $value): ?>
 				 
-					<li id="<?php echo $value["id"]; ?>" class="bloqueSlide">
-						<span class="fa fa-times eliminarSlide" ruta=<?php echo $value["ruta"]; ?>></span>
-				       	<img src="<?php echo "backend/".substr($value["ruta"], 6); ?>" class="handleImg"/>
-		       		</li>
+		       		<li>
+		           	<img src="<?php echo "backend/".substr($value["ruta"], 6); ?>">
+		           	<div class="slideCaption">
+		           		<h3><?php echo $value["titulo"]; ?></h3>
+				   		<p><?php echo $value["descripcion"]; ?></p>
+		           	</div>
+		           </li>
+
 	       		<?php endforeach ?>
        		<?php endif ?>
 
