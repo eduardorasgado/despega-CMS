@@ -111,4 +111,10 @@ class slideModels
 		}
 		return false;
 	}
+
+	//orden de los items
+	public function orderSlideAjaxModel($datos, $tabla)
+	{
+		return true;
+	}
 }

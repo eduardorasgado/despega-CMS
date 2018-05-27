@@ -66,7 +66,7 @@ class Ajax
 		];
 
 		$respuesta = slideControllers::orderSlideAjaxController($datos);
-		echo true;
+		echo $respuesta;
 	}
 
 

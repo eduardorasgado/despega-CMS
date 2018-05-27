@@ -144,6 +144,12 @@ class slideControllers
 		return false;
 	}
 
+	//actualizar el orden de los items
+	public function orderSlideAjaxController($datos)
+	{
+		return slideModels::orderSlideAjaxModel($datos, "slide");
+	}
+
 
 	#UTILIDADES ----------------------------------------
 
