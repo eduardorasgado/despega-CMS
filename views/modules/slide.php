@@ -3,45 +3,34 @@
 	<div id="slide" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
 			<ul>
-		       <li>
-	           	<img src="views/images/slide/slide01.jpg">
-	           	<div class="slideCaption">
-	           		<h3>Lorem Ipsum</h3>
-			   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-	           	</div>
-	           </li>
-	           
-		       <li>
-	           	<img src="views/images/slide/slide02.jpg"> 	
-	           	<div class="slideCaption">
-	           		<h3>Lorem Ipsum</h3>
-			   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-	           	</div>
-	           </li>
-	           
-		       <li>
-	           	<img src="views/images/slide/slide03.jpg">
-	           	<div class="slideCaption">
-	           		<h3>Lorem Ipsum</h3>
-			   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-	           	</div>
-	           </li>
-	           
-		       <li>
-	           	<img src="views/images/slide/slide04.jpg">
-	           	<div class="slideCaption">
-	           		<h3>Lorem Ipsum</h3>
-			   		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-	           	</div>
-	           </li>
+		       <?php 
+
+				$slideObjects = new slideControllers();
+				$slides = $slideObjects->showSlidesInViewController();
+
+			 ?>
+			 <?php if(!empty($slides)): ?>
+				 <?php foreach($slides as $key => $value): ?>
+				 
+					<li id="<?php echo $value["id"]; ?>" class="bloqueSlide">
+						<span class="fa fa-times eliminarSlide" ruta=<?php echo $value["ruta"]; ?>></span>
+				       	<img src="<?php echo "backend/".substr($value["ruta"], 6); ?>" class="handleImg"/>
+		       		</li>
+	       		<?php endforeach ?>
+       		<?php endif ?>
 
 			</ul>
 
-		    <ol id="indicadores">			
-				<li role-slide = "1"><span class="fa fa-circle"></span></li>
-				<li role-slide = "2"><span class="fa fa-circle"></span></li>
-				<li role-slide = "3"><span class="fa fa-circle"></span></li>
-				<li role-slide = "4"><span class="fa fa-circle"></span></li>
+		    <ol id="indicadores">
+
+		    <?php $counterRole = 1; ?>
+			 <?php if(!empty($slides)): ?>
+				 <?php foreach($slides as $key => $value): ?>
+				 	<li role-slide = "<?php echo $counterRole; ?>"<span class="fa fa-circle"></span></li>
+				 	<?php $counterRole++; ?>
+	       		<?php endforeach ?>
+       		<?php endif ?>			
+				
 			</ol>
 
 			<div id="slideIzq"><span class="fa fa-chevron-left"></span></div>
