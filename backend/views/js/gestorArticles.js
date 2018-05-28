@@ -19,3 +19,17 @@ $("#btnAgregarArticulo").click(function(){
 });
 
 /*=====  End of AGREGAR ARTICULO  ======*/
+
+/*==========================================
+=            SUBIR FOTO ARTICLE            =
+==========================================*/
+var imagen = "";
+$("#subirFoto").change(function(){
+	image = this.files[0];
+	//console.log(image);
+
+	//validando tamaño de imagen
+	
+});
+
+/*=====  End of SUBIR FOTO ARTICLE  ======*/
