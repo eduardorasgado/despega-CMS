@@ -41,8 +41,8 @@ class gestorArticlesModel
 	}
 
 	//borrar el articulo seleccionado
-	public function borrarArticuloController()
+	public function borrarArticuloModel()
 	{
-		
+		$query = "";
 	}
 }

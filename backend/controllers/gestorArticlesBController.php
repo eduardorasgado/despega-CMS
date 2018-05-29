@@ -158,7 +158,15 @@ class gestorArticlesController
 	public function borrarArticuloController()
 	{
 		if (isset($_GET["idBorrar"])) {
-			# code...
+
+			//borrar de la carpeta la imagen
+			unlink($_GET["rutaImagen"]);
+
+			$dato = $_GET["idBorrar"];
+
+			$respuesta = gestorArticlesModel::borrarArticuloModel($dato, "articulos");
+
+			
 		}
 	}
 
