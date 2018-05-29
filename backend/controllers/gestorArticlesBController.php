@@ -33,7 +33,29 @@ class gestorArticlesController
 			$aleatorio = mt_rand(100,999);
 
 			//crear nombre complejo ṕara subirlo al server
-			$ruta = "../../views/images/articulos/article_".$noSpaces."_".$aleatorio;
+			$ruta = "../../views/images/articulos/temp/article_".$noSpaces."_".$aleatorio;
+			if ($extension == "png") {
+				$ruta = $ruta.".png";
+
+				$origen = imagecreatefrompng($datos["imagenTemporal"]);
+
+				//cortar la imagen a 800 x 400
+				$cropped = self::cropImage($origen);
+
+				//imagepng($cropped, $ruta)
+			}//entensionpng
 		}
+	}
+
+	#UTILIDADES DE ARTICLES-----------------------------
+	private function cropImage($origen)
+	{
+		$destiny = imagecrop($origen, [
+									"x" => 0,
+									"y" => 0,
+									"width" => 800,
+									"height" => 400,
+								]);
+		return $destiny;
 	}
 }
