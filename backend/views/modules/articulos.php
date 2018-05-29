@@ -26,7 +26,7 @@ ARTÍCULOS ADMINISTRABLE
 
 	<div id="agregarArtículo" style="display: none">
 		
-		<form method="POST" enctype="multipart/form-data-">
+		<form method="POST" enctype="multipart/form-data">
 			<input name="tituloArticulo" type="text" placeholder="Título del Artículo" class="form-control" maxlength="120" required>
 
 			<textarea name="introArticulo" id="" cols="30" rows="5" placeholder="Introducción del Articulo" class="form-control" maxlength="169" required></textarea>
