@@ -34,6 +34,7 @@ class gestorArticlesController
 
 			//crear nombre complejo ṕara subirlo al server
 			$ruta = "../../views/images/articulos/temp/article_".$noSpaces."_".$aleatorio;
+
 			if ($extension == "png") {
 				$ruta = $ruta.".png";
 
@@ -42,8 +43,31 @@ class gestorArticlesController
 				//cortar la imagen a 800 x 400
 				$cropped = self::cropImage($origen);
 
-				//imagepng($cropped, $ruta)
-			}//entensionpng
+				imagepng($cropped, $ruta)
+
+				return $ruta;
+
+			}//extension png
+			
+			else if ($extension == "jpeg" || $extension == "jpg" || $extension == "JPG")
+			{
+				$ruta = $ruta."jpg";
+				
+				$origen = imagecreatefromjpeg($datos["imagenTemporal"]);
+
+				//cortar la imagen a 800 x 400
+				$cropped = self::cropImage($origen);
+
+				//guardar los archivos en la carpeta del servidor
+				imagejpeg($cropped, $ruta);
+
+				return $ruta;
+
+			}//extension jpg
+			else
+			{
+				return false;
+			}
 		}
 	}
 
