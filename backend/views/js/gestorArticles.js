@@ -68,7 +68,16 @@ $("#subirFoto").change(function(){
 			processData: false,
 			beforeSend: function(){
 				$("#arrastreImagenArticulo").before("<img src='views/images/status.gif' id='status'>")
-			}
+			},
+			success: function(respuesta){
+				$("#status").remove();
+			},
+			error: function (xhr, ajaxOptions, thrownError) {
+		        //alert(xhr.status);
+		        //alert(thrownError);
+		        $("#status").remove();
+		        $("#arrastreImagenArticulo").before("<div class='alert alert-warning alerta2 text-center'>Oops creemos que ocurrió un error. Te sugerimos recargar la página :(.</div>");
+		    }
 		});
 
 		return true;
