@@ -122,7 +122,26 @@ class gestorArticlesController
 				"contenido" => $_POST["contenidoArticulo"],
 			];
 
-			$respuesta = gestorArticleModel::guardarArticuloModel($datosController, "articulos");
+			$respuesta = gestorArticlesModel::guardarArticuloModel($datosController, "articulos");
+
+			//caso de exito mandar a articulos con un mensaje suave
+			if ($respuesta) {
+				echo "<script>
+						swal({
+								title: 'Hecho!',
+								text: 'Tu artículo ha sido creado.',
+								type: 'success',
+								confirmButtonText: 'Cerrar',
+								closeOnConfirm: false,
+							},
+							function(isConfirm){
+								if(isConfirm){
+									window.location = 'articulos';
+								}
+							});
+					  </script>";
+			}
+			return false;
 		}
 	}
 
