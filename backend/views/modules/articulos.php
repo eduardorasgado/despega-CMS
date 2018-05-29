@@ -71,7 +71,7 @@ ARTÍCULOS ADMINISTRABLE
 
 					<li>
 						<span>
-						<a href="index.php?action=articulos&idBorrar='<?php echo $value["id"]; ?>'&rutaImagen='<?php echo $value["ruta"]; ?>'"><i class="fa fa-times btn btn-danger"></i></a>
+						<a href="index.php?action=articulos&idBorrar=<?php echo $value["id"]; ?>&rutaImagen=<?php echo $value["ruta"]; ?>"><i class="fa fa-times btn btn-danger"></i></a>
 
 						<i class="fa fa-pencil btn btn-primary"></i>	
 						</span>
