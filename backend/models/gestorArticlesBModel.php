@@ -41,8 +41,19 @@ class gestorArticlesModel
 	}
 
 	//borrar el articulo seleccionado
-	public function borrarArticuloModel()
+	public function borrarArticuloModel($dato, $tabla)
 	{
-		$query = "";
+		$query = "DELETE FROM $tabla WHERE id = :id";
+
+		$stmt = ConexionModels::conexionModel()->prepare($query);
+
+		$stmt->bindParam(":id", $dato, PDO::PARAM_INT);
+
+		if ($stmt->execute()){
+			$stmt = null;
+			return true;
+		}
+		$stmt = null;
+		return false;
 	}
 }

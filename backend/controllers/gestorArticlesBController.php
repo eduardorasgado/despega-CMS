@@ -164,9 +164,27 @@ class gestorArticlesController
 
 			$dato = $_GET["idBorrar"];
 
+			//borrar articulo de la DB
 			$respuesta = gestorArticlesModel::borrarArticuloModel($dato, "articulos");
 
-			
+			if ($respuesta) {
+				echo "<script>
+						swal({
+								title: 'Hecho!',
+								text: 'Tu artículo ha sido borrado.',
+								type: 'success',
+								confirmButtonText: 'Cerrar',
+								closeOnConfirm: false,
+							},
+							function(isConfirm){
+								if(isConfirm){
+									window.location = 'articulos';
+								}
+							});
+					  </script>";
+			}
+			return false;
+
 		}
 	}
 
