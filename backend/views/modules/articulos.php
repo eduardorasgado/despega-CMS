@@ -77,7 +77,7 @@ ARTÍCULOS ADMINISTRABLE
 						<img src="<?php echo $value["ruta"]?>">
 						<h1><?php echo $value["titulo"]?></h1>
 						<p><?php echo $value["introduccion"]?></p>
-						<a href="#articulo1" data-toggle="modal">
+						<a href="#articulo<?php echo $value["id"]?>" data-toggle="modal">
 						<button class="btn btn-default">Leer Más</button>
 						</a>
 
@@ -89,7 +89,7 @@ ARTÍCULOS ADMINISTRABLE
 					ARTÍCULO MODAL         
 					======================================-->
 
-					<div id="articulo1" class="modal fade">
+					<div id="articulo<?php echo $value["id"]?>" class="modal fade">
 
 							<div class="modal-dialog modal-content">
 
