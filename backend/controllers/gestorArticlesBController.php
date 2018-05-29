@@ -145,6 +145,11 @@ class gestorArticlesController
 		}
 	}
 
+	public function mostrarArticuloController()
+	{
+		return false;
+	}
+
 	#UTILIDADES DE ARTICLES-----------------------------
 	private function cropImage($origen)
 	{
