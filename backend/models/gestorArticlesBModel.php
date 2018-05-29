@@ -22,4 +22,15 @@ class gestorArticlesModel
 		$stmt = null;
 		return false;
 	}
+
+	public function mostrarArticulosModel($tabla)
+	{
+		$query = "SELECT * FROM $tabla";
+
+		$stmt = ConexionModels::conexionModel()->prepare($query);
+
+		if ($stmt->execute()) {
+			$articlesData = $stmt->fetchAll();
+		}
+	}
 }

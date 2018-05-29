@@ -145,8 +145,13 @@ class gestorArticlesController
 		}
 	}
 
-	public function mostrarArticuloController()
+	public function mostrarArticulosController()
 	{
+		$articles = gestorArticlesModel::mostrarArticulosModel("articulos");
+
+		if ($articles) {
+			return $articles;
+		}
 		return false;
 	}
 

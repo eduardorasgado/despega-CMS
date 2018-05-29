@@ -62,7 +62,7 @@ ARTÍCULOS ADMINISTRABLE
 		<?php 
 
 		$showArticles = new gestorArticlesController();
-		$showArticles->mostrarArticuloController();
+		$showArticles->mostrarArticulosController();
 
 		?>
 
@@ -84,7 +84,7 @@ ARTÍCULOS ADMINISTRABLE
 						<hr>
 
 					</li>
-					
+
 	       		<?php endforeach ?>
        		<?php endif ?>
 		<!--li>
