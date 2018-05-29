@@ -1,0 +1,10 @@
+#try not to delete this folder, it should exist for Article controller temporal files handling.
+#this file avoids github deletes the actual folder
+
+#trata de no borrar esta carpeta, este archivo esta aqui para evitar que github borre la carpeta
+#asi mismo es importante para el controlador de la seccion articulos
+
+#cheers
+#saludos
+
+#/eduardorasgado <-- github
