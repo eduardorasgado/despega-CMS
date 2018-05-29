@@ -71,13 +71,14 @@ ARTÍCULOS ADMINISTRABLE
 
 					<li>
 						<span>
-						<i class="fa fa-times btn btn-danger"></i>
+						<a href="index.php?action=articulos&idBorrar='<?php echo $value["id"]; ?>'&rutaImagen='<?php echo $value["ruta"]; ?>'"><i class="fa fa-times btn btn-danger"></i></a>
+
 						<i class="fa fa-pencil btn btn-primary"></i>	
 						</span>
-						<img src="<?php echo $value["ruta"]?>">
-						<h1><?php echo $value["titulo"]?></h1>
-						<p><?php echo $value["introduccion"]?></p>
-						<a href="#articulo<?php echo $value["id"]?>" data-toggle="modal">
+						<img src="<?php echo $value["ruta"]; ?>">
+						<h1><?php echo $value["titulo"]; ?></h1>
+						<p><?php echo $value["introduccion"]; ?></p>
+						<a href="#articulo<?php echo $value["id"]; ?>" data-toggle="modal">
 						<button class="btn btn-default">Leer Más</button>
 						</a>
 
@@ -89,21 +90,21 @@ ARTÍCULOS ADMINISTRABLE
 					ARTÍCULO MODAL         
 					======================================-->
 
-					<div id="articulo<?php echo $value["id"]?>" class="modal fade">
+					<div id="articulo<?php echo $value["id"]; ?>" class="modal fade">
 
 							<div class="modal-dialog modal-content">
 
 							 <div class="modal-header" style="border:1px solid #eee">
 					        
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
-							 <h3 class="modal-title"><?php echo $value["titulo"]?></h3>
+							 <h3 class="modal-title"><?php echo $value["titulo"]; ?></h3>
 					        
 						</div>
 
 						<div class="modal-body" style="border:1px solid #eee">
 					        
-						<img src="<?php echo $value["ruta"]?>" width="100%" style="margin-bottom:20px">
-						<p class="parrafoContenido"><?php echo $value["contenido"]?></p>
+						<img src="<?php echo $value["ruta"]; ?>" width="100%" style="margin-bottom:20px">
+						<p class="parrafoContenido"><?php echo $value["contenido"]; ?></p>
 					        
 						</div>
 
