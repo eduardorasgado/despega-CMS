@@ -59,6 +59,34 @@ ARTÍCULOS ADMINISTRABLE
 
 	<ul id="editarArticulo">
 
+		<?php 
+
+		$showArticles = new gestorArticlesController();
+		$showArticles->mostrarArticuloController();
+
+		?>
+
+		<?php if(!empty($showArticles)): ?>
+				 <?php foreach($showArticles as $key => $value): ?>
+
+					<li>
+						<span>
+						<i class="fa fa-times btn btn-danger"></i>
+						<i class="fa fa-pencil btn btn-primary"></i>	
+						</span>
+						<img src="views/images/articulos/landscape02.jpg" class="img-thumbnail">
+						<h1>Lorem Ipsum</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<a href="#articulo1" data-toggle="modal">
+						<button class="btn btn-default">Leer Más</button>
+						</a>
+
+						<hr>
+
+					</li>
+					
+	       		<?php endforeach ?>
+       		<?php endif ?>
 		<!--li>
 			<span>
 			<i class="fa fa-times btn btn-danger"></i>
