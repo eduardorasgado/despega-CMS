@@ -1,4 +1,7 @@
 <?php 
+//llamada a modelo y controlador
+require_once("../../models/gestorArticlesBModel.php");
+require_once("../../controllers/gestorArticlesBController.php");
 
 # CLASES Y METODOS -------------------------------
 class Ajax
@@ -11,7 +14,9 @@ class Ajax
 			"imagenTemporal" => $this->imagenTemporal,
 		];
 		
-		echo $this->imagenTemporal;
+		$respuesta = gestorArticlesController::uploadImageController($datos);
+
+		echo $respuesta;
 	}
 }
 
