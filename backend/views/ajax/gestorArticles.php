@@ -11,13 +11,14 @@ class Ajax
 			"imagenTemporal" => $this->imagenTemporal,
 		];
 		
+		echo $this->imagenTemporal;
 	}
 }
 
 # INSTANCIAS DE LA CLASE --------------------
 
-if (isset($_POST["imagenArticle"])) {
+if (isset($_FILES["imagenArticle"]["tmp_name"])) {
 	$imageToArt = new Ajax();
-	$imageToArt->imagenTemporal = $_POST["imagenArticle"];
+	$imageToArt->imagenTemporal = $_FILES["imagenArticle"]["tmp_name"];
 	$imageToArt->gestorArticulosAjax();
 }

@@ -66,11 +66,13 @@ $("#subirFoto").change(function(){
 			cache: false,
 			contentType: false,
 			processData: false,
+			//dataType: "json",
 			beforeSend: function(){
 				$("#arrastreImagenArticulo").before("<img src='views/images/status.gif' id='status'>")
 			},
 			success: function(respuesta){
 				$("#status").remove();
+				console.log(respuesta);
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
 		        //alert(xhr.status);
