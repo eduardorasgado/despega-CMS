@@ -24,18 +24,19 @@ class gestorArticlesController
 
 			//unir el array en string, del nombre pero ya 
 			//sin la externsion(que fue quitada por el pop)
-			$noExtension = implode(".", $nameSplitted);
+			$noExtension = implode("-", $nameSplitted);
 
 			//quitar espacios
 			$noSpaces = str_replace(" ", "_", $noExtension);
 
 			//elegir un numero aleatorio
 			$aleatorio = mt_rand(100,999);
-
+			return $extension;
 			//crear nombre complejo ṕara subirlo al server
 			$ruta = "../../views/images/articulos/temp/article_".$noSpaces."_".$aleatorio;
 
-			if ($extension == "png") {
+			if ($extension == "png")
+			{
 				$ruta = $ruta.".png";
 
 				$origen = imagecreatefrompng($datos["imagenTemporal"]);

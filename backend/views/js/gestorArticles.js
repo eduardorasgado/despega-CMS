@@ -72,7 +72,17 @@ $("#subirFoto").change(function(){
 			},
 			success: function(respuesta){
 				$("#status").remove();
-				console.log(respuesta);
+				if (respuesta == false) {
+					$(".alerta2").remove();
+		        $("#arrastreImagenArticulo").before("<div class='alert alert-warning alerta2 text-center'>Por favor cumple los requerimientos mencionados :).</div>");
+
+				}
+				else{
+					$(".alerta2").remove();	
+					console.log(respuesta);
+			        $("#arrastreImagenArticulo").before("<div class='alert alert-success alerta2 text-center'>Imagen Seleccionada.</div>");
+
+				}
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
 		        //alert(xhr.status);
