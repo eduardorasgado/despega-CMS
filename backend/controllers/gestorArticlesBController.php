@@ -58,6 +58,23 @@ class gestorArticlesController
 		}
 	}
 
+	#Guardar articulo
+	public function guardarArticuloController()
+	{
+		if (isset($_POST["tituloArticulo"])) {
+			$imagen = $FILES["imagen"]["tmp_file"];
+			
+			//con glob recorremos una carpeta
+			$borrar = glob("views/images/articulos/temp/*");
+
+			//borramos todos los archivos de la carpeta 
+			//temp
+			foreach ($borrar as $file) {
+				unlink($file);
+			}
+		}
+	}
+
 	#UTILIDADES DE ARTICLES-----------------------------
 	private function cropImage($origen)
 	{

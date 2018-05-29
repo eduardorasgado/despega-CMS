@@ -48,6 +48,11 @@ ARTÍCULOS ADMINISTRABLE
 
 	</div>
 
+	<?php 
+		$creacionDeArticulo = new gestorArticlesController();
+		$creacionDeArticulo->guardarArticuloController();
+	 ?>
+
 	<hr>
 
 	<!--==== EDITAR ARTÍCULO  ====-->
