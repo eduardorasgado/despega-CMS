@@ -77,13 +77,14 @@ class gestorArticlesController
 			$aleatorio = mt_rand(100,9999);
 
 			//crear nombre complejo ṕara subirlo al server
-			$ruta = "../../views/images/articulos/article_".$aleatorio;
-			return $_FILES["imagen"]["type"];
+			$ruta = "views/images/articulos/article_".$aleatorio;
+
+			//guardando la imagen final
 			if ($_FILES["imagen"]["type"] == "image/png")
 			{
 				$ruta = $ruta.".png";
 
-				$origen = imagecreatefrompng($datos["imagenTemporal"]);
+				$origen = imagecreatefrompng($imagen);
 
 				//cortar la imagen a 800 x 400
 				$cropped = self::cropImage($origen);
@@ -98,7 +99,7 @@ class gestorArticlesController
 			{
 				$ruta = $ruta.".jpg";
 				
-				$origen = imagecreatefromjpeg($datos["imagenTemporal"]);
+				$origen = imagecreatefromjpeg($imagen);
 
 				//cortar la imagen a 800 x 400
 				$cropped = self::cropImage($origen);
