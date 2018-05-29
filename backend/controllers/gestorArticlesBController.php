@@ -91,7 +91,7 @@ class gestorArticlesController
 
 				imagepng($cropped, $ruta);
 
-				return $ruta;
+				//return $ruta;
 
 			}//extension png
 			
@@ -107,13 +107,22 @@ class gestorArticlesController
 				//guardar los archivos en la carpeta del servidor
 				imagejpeg($cropped, $ruta);
 
-				return $ruta;
+				//return $ruta;
 
 			}//extension jpg
 			else
 			{
 				return false;
 			}
+
+			$datosController = [
+				"titulo" => $_POST["tituloArticulo"],
+				"introduccion" => $_POST["introArticulo"],
+				"ruta" => $ruta,
+				"contenido" => $_POST["contenidoArticulo"],
+			];
+
+			$respuesta = gestorArticleModel::guardarArticuloModel($datosController, "articulos");
 		}
 	}
 
