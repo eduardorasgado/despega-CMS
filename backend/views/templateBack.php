@@ -19,6 +19,7 @@
 	<link rel="stylesheet" href="views/css/cssFancybox/jquery.fancybox.css">
 	<link rel="stylesheet" href="views/css/jquery-ui.min.css">
 
+	<script src="views/js/sweetalert.min.js"></script>
 </head>
 
 <body>
@@ -51,7 +52,7 @@
 	<script src="views/js/dataTables.responsive.min.js"></script>
 	<script src="views/js/responsive.bootstrap.min.js"></script>
 	<script src="views/js/jquery-ui.min.js"></script>
-	<script src="views/js/sweetalert.min.js"></script>
+	
 
 	<script type="text/javascript" src="views/js/validarIngreso.js"></script>
 	<script type="text/javascript" src="views/js/gestorSlide.js"></script>
