@@ -7,11 +7,13 @@ require_once("../../controllers/gestorArticlesBController.php");
 class Ajax
 {
 	public $imagenTemporal;
+	public $imagenType;
 	//Subiendo la imagen del artuculo
 	public function gestorArticulosAjax()
 	{
 		$datos = [
 			"imagenTemporal" => $this->imagenTemporal,
+			"imagenType" => $this->imagenType,
 		];
 		
 		$respuesta = gestorArticlesController::uploadImageController($datos);
@@ -25,5 +27,6 @@ class Ajax
 if (isset($_FILES["imagenArticle"]["tmp_name"])) {
 	$imageToArt = new Ajax();
 	$imageToArt->imagenTemporal = $_FILES["imagenArticle"]["tmp_name"];
+	$imageToArt->imagenType = $_POST["imagenArticleType"];
 	$imageToArt->gestorArticulosAjax();
 }

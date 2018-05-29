@@ -58,6 +58,7 @@ $("#subirFoto").change(function(){
 		var dataImg = new FormData();
 		
 		dataImg.append("imagenArticle", imagen);
+		dataImg.append("imagenArticleType", imagenType);
 
 		$.ajax({
 			url: "views/ajax/gestorArticles.php",
