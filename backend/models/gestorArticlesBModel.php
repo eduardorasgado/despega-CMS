@@ -23,6 +23,8 @@ class gestorArticlesModel
 		return false;
 	}
 
+	//traer todos los articulos para mostrarlos al
+	//frontend del admin
 	public function mostrarArticulosModel($tabla)
 	{
 		$query = "SELECT id, titulo, introduccion, ruta, contenido FROM $tabla ORDER BY orden ASC";
@@ -36,5 +38,11 @@ class gestorArticlesModel
 		}
 		$stmt = null;
 		return false;
+	}
+
+	//borrar el articulo seleccionado
+	public function borrarArticuloController()
+	{
+		
 	}
 }

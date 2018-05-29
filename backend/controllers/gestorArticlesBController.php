@@ -155,6 +155,13 @@ class gestorArticlesController
 		return false;
 	}
 
+	public function borrarArticuloController()
+	{
+		if (isset($_GET["idBorrar"])) {
+			# code...
+		}
+	}
+
 	#UTILIDADES DE ARTICLES-----------------------------
 	private function cropImage($origen)
 	{
