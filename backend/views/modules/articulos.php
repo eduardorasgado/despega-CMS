@@ -74,7 +74,7 @@ ARTÍCULOS ADMINISTRABLE
 						<i class="fa fa-times btn btn-danger"></i>
 						<i class="fa fa-pencil btn btn-primary"></i>	
 						</span>
-						<img src="views/images/articulos/landscape02.jpg" class="img-thumbnail">
+						<img src="<?php echo $value["ruta"]?>">
 						<h1><?php echo $value["titulo"]?></h1>
 						<p><?php echo $value["introduccion"]?></p>
 						<a href="#articulo1" data-toggle="modal">

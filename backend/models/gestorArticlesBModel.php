@@ -25,7 +25,7 @@ class gestorArticlesModel
 
 	public function mostrarArticulosModel($tabla)
 	{
-		$query = "SELECT * FROM $tabla";
+		$query = "SELECT id, titulo, introduccion, ruta, contenido FROM $tabla ORDER BY orden ASC";
 
 		$stmt = ConexionModels::conexionModel()->prepare($query);
 
