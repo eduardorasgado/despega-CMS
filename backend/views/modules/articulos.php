@@ -62,12 +62,12 @@ ARTÍCULOS ADMINISTRABLE
 		<?php 
 
 		$showArticles = new gestorArticlesController();
-		$showArticles->mostrarArticulosController();
+		$articles = $showArticles->mostrarArticulosController();
 
 		?>
 
-		<?php if(!empty($showArticles)): ?>
-				 <?php foreach($showArticles as $key => $value): ?>
+		<?php if(!empty($articles)): ?>
+				 <?php foreach($articles as $key => $value): ?>
 
 					<li>
 						<span>
@@ -75,8 +75,8 @@ ARTÍCULOS ADMINISTRABLE
 						<i class="fa fa-pencil btn btn-primary"></i>	
 						</span>
 						<img src="views/images/articulos/landscape02.jpg" class="img-thumbnail">
-						<h1>Lorem Ipsum</h1>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+						<h1><?php echo $value["titulo"]?></h1>
+						<p><?php echo $value["introduccion"]?></p>
 						<a href="#articulo1" data-toggle="modal">
 						<button class="btn btn-default">Leer Más</button>
 						</a>

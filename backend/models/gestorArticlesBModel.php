@@ -31,6 +31,10 @@ class gestorArticlesModel
 
 		if ($stmt->execute()) {
 			$articlesData = $stmt->fetchAll();
+			$stmt = null;
+			return $articlesData;
 		}
+		$stmt = null;
+		return false;
 	}
 }
