@@ -16,7 +16,7 @@ class gestorArticlesController
 		{
 
 			//elegir un numero aleatorio
-			$aleatorio = mt_rand(100,999);
+			$aleatorio = mt_rand(100,9999);
 
 			//crear nombre complejo ṕara subirlo al server
 			$ruta = "../../views/images/articulos/temp/article_".$aleatorio;

@@ -75,14 +75,15 @@ $("#subirFoto").change(function(){
 				$("#status").remove();
 				if (respuesta == false) {
 					$(".alerta2").remove();
-		        $("#arrastreImagenArticulo").before("<div class='alert alert-warning alerta2 text-center'>Por favor cumple los requerimientos mencionados :).</div>");
-
+		        	$("#arrastreImagenArticulo").before("<div class='alert alert-warning alerta2 text-center'>Por favor cumple los requerimientos mencionados :).</div>");
 				}
 				else{
 					$(".alerta2").remove();	
 					console.log(respuesta);
+					ruta = respuesta.slice(6)
+					console.log(ruta);
 			        $("#arrastreImagenArticulo").before("<div class='alert alert-success alerta2 text-center'>Imagen Seleccionada.</div>");
-
+			        $("#arrastreImagenArticulo").html("<div id='imagenArticulo'><img src='"+ruta+"' class='img-thumbnail'></div>");
 				}
 			},
 			error: function (xhr, ajaxOptions, thrownError) {
