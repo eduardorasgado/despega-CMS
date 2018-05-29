@@ -43,7 +43,7 @@ class gestorArticlesController
 				//cortar la imagen a 800 x 400
 				$cropped = self::cropImage($origen);
 
-				imagepng($cropped, $ruta)
+				imagepng($cropped, $ruta);
 
 				return $ruta;
 
