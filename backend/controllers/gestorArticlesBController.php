@@ -117,7 +117,7 @@ class gestorArticlesController
 
 			$datosController = [
 				"titulo" => $_POST["tituloArticulo"],
-				"introduccion" => $_POST["introArticulo"]."...",
+				"introduccion" => $_POST["introArticulo"],
 				"ruta" => $ruta,
 				"contenido" => $_POST["contenidoArticulo"],
 			];
