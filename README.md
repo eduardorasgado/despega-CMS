@@ -4,3 +4,16 @@
 
 # despega-CMS
 CMS Open Source adaptable, modular, basado en MVC para freelancers con tiempos cortos de entrega y mucha imaginación.
+
+#How does this project works?
+It integrates pure PHP, HTML, CSS, JQuery and Bootstrap 4.
+
+##How to run this?
+Clone this project into your htdocs folder in XAMPP or LAMPP, etc\
+You have to set your mysql server\
+Now create a database called: despegacms\
+And last: import despegacms.sql which is in the root of this project.\
+Open the project in your LAMPP, XAMPP, etc\
+
+##LICENCE
+GPL-3.0
