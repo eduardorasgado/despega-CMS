@@ -5,7 +5,7 @@
 # Despega Content Management System
 CMS Open Source adaptable, modular, basado en MVC para freelancers con tiempos cortos de entrega y mucha imaginación.
 
-Free Open SOurce CMS for quick but cute works, if you are a freelancer maybe would love it.
+Free Open SOurce CMS for quick but cute websites, It helps you to make the things done, if you are a freelancer maybe would love it.
 
 ## How does this project works?
 It integrates pure PHP, HTML, CSS, JQuery and Bootstrap 4.
